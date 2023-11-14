@@ -28,13 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(255) NOT NULL,
-  `Date of birth` date NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Phone` int(11) NOT NULL,
-  `Username` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL
+  `Id` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `Username` varchar(200),
+  `Email` varchar(200),
+  `Age` int(11),
+  `Password` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -189,12 +187,6 @@ CREATE TABLE `shopping cart item` (
 --
 -- Chỉ mục cho các bảng đã đổ
 --
-
---
--- Chỉ mục cho bảng `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Chỉ mục cho bảng `order`

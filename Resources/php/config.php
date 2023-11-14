@@ -2,6 +2,6 @@
     $SERVER = "localhost";
     $USERNAME = "root";
     $PASSWORD = "";
-    $DBNAME = "login";
+    $DBNAME = "website08";
     $con = mysqli_connect($SERVER, $USERNAME,$PASSWORD, $DBNAME) or die("Connect failed");
 ?>

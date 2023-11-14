@@ -21,7 +21,7 @@
 
          //verifying the unique email
 
-         $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'");
+         $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
 
          if(mysqli_num_rows($verify_query) != 0 ){
             echo "<div class='message'>
@@ -31,7 +31,7 @@
          }
          else{
 
-            mysqli_query($con,"INSERT INTO users(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
+            mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
 
             echo "<div class='message'>
                       <p style=\"color: green;\">Đăng ký thành công!</p>
