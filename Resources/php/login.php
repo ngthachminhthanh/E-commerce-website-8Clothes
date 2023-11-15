@@ -35,7 +35,7 @@
                     echo    "<a href='login.php'><button class='btn'>Quay lại</button>";
                 }
                 if(isset($_SESSION['valid'])){
-                    header("Location: ../index.html");
+                    header("Location: ../index.php");
                 }
                 }else{
 

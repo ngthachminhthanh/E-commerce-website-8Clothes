@@ -1,8 +1,10 @@
 <?php
+    session_start();
     require_once './php/config.php';
 
     $sql = "SELECT * FROM `product`;";
     $all_product = $con->query($sql);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +32,16 @@
 
         <ul id="header__nav">
             <li><a href="#">GIỎ HÀNG</a></li>
-            <li><a href="#">ĐĂNG XUẤT</a></li>
+            
+            <?php
+                if(isset($_SESSION['valid'])){
+                    echo '<li><a href="index.php">ĐĂNG XUẤT</a></li>';
+                }
+                else {
+                    echo '<li><a href="./php/login.php">ĐĂNG NHẬP</a></li>';
+                }
+            ?>
+
         </ul>
     </header>
 
@@ -112,5 +123,5 @@
 		</div>
 	</footer>
 </body>
-<script src='./Resources/JS/index.js'></script>
+<script src='./JS/index.js'></script>
 </html>
