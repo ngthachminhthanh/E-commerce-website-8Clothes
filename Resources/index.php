@@ -94,35 +94,14 @@
     <footer class="footer">
 		<div class="container row">
 			<div class="footer-col">
-				<h4>Company</h4>
+				<h4>Liên hệ với chúng tôi</h4>
 				<ul>
-					<li><a href="#">About us</a></li>
-					<li><a href="#">Our services</a></li>
-					<li><a href="#">Privacy policy</a></li>
-					<li><a href="#">Visit website</a></li>
+					<li><a href="#">Số điện thoại +84-XXX-XXX-XXX</a></li>
+					<li><a href="#">Địa chỉ TPHCM</a></li>
 				</ul>
 			</div>
 			<div class="footer-col">
-				<h4>Get help</h4>
-				<ul>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Shipping</a></li>
-					<li><a href="#">Returns</a></li>
-					<li><a href="#">Order status</a></li>
-					<li><a href="#">Payment options</a></li>
-				</ul>
-			</div>
-			<div class="footer-col">
-				<h4>Online shop</h4>
-				<ul>
-					<li><a href="#">Download</a></li>
-					<li><a href="#">Changelog</a></li>
-					<li><a href="#">Github</a></li>
-					<li><a href="#">All version</a></li>
-				</ul>
-			</div>
-			<div class="footer-col">
-				<h4>Follow Us</h4>
+				<h4>Theo dõi chúng tôi qua</h4>
 				<div class="social-links">
 					<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
 					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>

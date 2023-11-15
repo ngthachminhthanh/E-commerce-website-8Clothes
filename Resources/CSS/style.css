@@ -5,7 +5,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'GI', 'Courier New';
-    font-size: 95%;
+    font-size: 100%;
 }
 
 @font-face {
@@ -176,7 +176,7 @@ header #header__nav li a:hover:after {
 /*Products*/
 #content .product {
     width: 80%;
-    height: 250px;
+    height: 240px;
     padding: 16px 18px;
     border-radius: 5px;
     cursor: pointer;
@@ -198,7 +198,7 @@ header #header__nav li a:hover:after {
     height: 200px;
     overflow: hidden;
     background-color: #EFEFEF;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 #content .product img {
@@ -221,6 +221,7 @@ header #header__nav li a:hover:after {
 
 #content .product .product-description span {
     font-size: 14px;
+    padding-left: 10px;
 }
 
 #content .product .product-description h5 {
@@ -239,7 +240,7 @@ header #header__nav li a:hover:after {
 #content .product .product-description h4 {
     padding-left: 15px;
     padding-top: 7px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #088178;
 }
@@ -250,9 +251,10 @@ header #header__nav li a:hover:after {
 }
 
 #content .product .product-cart-icon {
+    text-align: center;
     width: 40px;
     height: 40px;
-    line-height: 40px;
+    line-height: 43px;
     border-radius: 50px;
     background-color: #e8f6ea;
     font-weight: 500;
@@ -260,7 +262,7 @@ header #header__nav li a:hover:after {
     border: 1px solid #cce7d0;
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    right: 25px;
 }
  /*
 .phantrang {
@@ -301,7 +303,6 @@ header #header__nav li a:hover:after {
 .footer {
 	background-color: gray;
 	width: 100%;
-    position: fixed;
     bottom: 0;
 }
 
@@ -320,15 +321,15 @@ ul {
 }
 
 .footer-col {
-	width: 25%;
-	padding: 0 15px;
+	width: 50%;
+	padding: 5px 15px;
 }
 
 .footer-col h4 {
-	font-size: 18px;
+	font-size: 14px;
 	color: #FFF;
 	text-transform: capitalize;
-	margin-bottom: 35px;
+	margin-bottom: 20px;
 	font-weight: 500;
 	position: relative;
 }
@@ -344,13 +345,13 @@ ul {
 }
 
 .footer-col ul li:not(:last-child) {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .footer-col ul li a {
 	color: #DDD;
 	display: block;
-	font-size: 1rem;
+	font-size: 12px;
 	font-weight: 300;
 	text-transform: capitalize;
 	text-decoration: none;
@@ -366,12 +367,12 @@ ul {
 	color: #FFF;
 	background-color: rgba(255, 255, 255, 0.2);
 	display: inline-block;
-	height: 40px;
-	width: 40px;
+	height: 30px;
+	width: 30px;
 	border-radius: 50%;
 	text-align: center;
-	margin: 0 10px 10px 0;
-	line-height: 40px;
+    margin: auto;
+	line-height: 30px;
 	transition: all 0.5s ease;
 }
 
