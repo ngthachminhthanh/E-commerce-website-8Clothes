@@ -129,6 +129,10 @@ header #header__nav li a:hover:after {
     position: fixed;
 }
 
+#content .phanloai h2{
+    font-size: 14px;
+}
+
 .phanloai .loai {
     margin-top: 20px;
     padding: 0 5px;
