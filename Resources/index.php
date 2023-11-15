@@ -22,14 +22,13 @@
         </div>
 
         <div class="searchBar">
-            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
             <div class="searchIcon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
+            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
         </div>
 
         <ul id="header__nav">
-            <li><a href="#content">SẢN PHẨM</a></li>
             <li><a href="#">GIỎ HÀNG</a></li>
             <li><a href="#">ĐĂNG XUẤT</a></li>
         </ul>
@@ -47,32 +46,41 @@
             </div>
         </div>
         <div class="products-container">
-            <h2>DANH MỤC SẢN PHẨM</h2>
-            <p>Các sản phẩm TOP SALE</p>
+            <div class="sort">
+                <p>Sắp xếp</p>
+            </div>
             <?php
             while($row = mysqli_fetch_assoc($all_product)){
             ?>
             <div class="product">
-                <div class="product--hoverEffect">
-                    <img class="product-img" src="<?php echo $row["Image"]; ?>" alt="test">
-                </div>
-                <div class="product-description">
-                    <span><?php echo $row["Name"]?></span> 
-                    <h5><?php echo $row["Description"]?></h5>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <h4><?php echo $row["Price"]?></h4>
-                </div>
-                <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                <table id="myTable">
+                    <tr>
+                    <td>
+                        <div class="product--hoverEffect">
+                            <img class="product-img" src="<?php echo $row["Image"]; ?>" alt="test">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="product-description">
+                            <span><?php echo $row["Name"]?></span> 
+                            <h5><?php echo $row["Description"]?></h5>
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                                <h4><?php echo $row["Price"]?></h4>
+                            </div>
+                            <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <?php }?>
 
-            <div class="phantrang">
+            <!--<div class="phantrang">
                 <div class="button pre">
                     <i class="fa-solid fa-arrow-left"></i>
                 </div>
@@ -80,7 +88,7 @@
                 <div class="button next">
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <footer class="footer">
