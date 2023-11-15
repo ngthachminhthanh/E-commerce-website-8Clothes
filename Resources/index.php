@@ -82,7 +82,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                                <h4><?php echo $row["Price"]?></h4>
+                                <h4><?php echo $row["Price"]?> VND</h4>
                             </div>
                             <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
                         </td>
