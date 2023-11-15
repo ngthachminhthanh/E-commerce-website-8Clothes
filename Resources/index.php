@@ -2,7 +2,7 @@
     require_once './php/config.php';
 
     $sql = "SELECT * FROM `product`;";
-    $all_product = $conn->query($sql);
+    $all_product = $con->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
