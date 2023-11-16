@@ -12,32 +12,32 @@
         <div class="box form-box">
 
         <?php 
-         include("config.php");
-         if(isset($_POST['submit'])){
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $age = $_POST['age'];
-            $password = $_POST['password'];
+            include("config.php");
+            if(isset($_POST['submit'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $age = $_POST['age'];
+                $password = $_POST['password'];
 
-         //verifying the unique email
+            //verifying the unique email
 
-         $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
+            $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
 
-         if(mysqli_num_rows($verify_query) != 0 ){
-            echo "<div class='message'>
-                      <p>Email này đã được sử dụng, vui lòng thử Email khác!</p>
-                  </div> <br>";
-            echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";
-         }
-         else{
+            if(mysqli_num_rows($verify_query) != 0 ){
+                echo "<div class='message'>
+                        <p>Email này đã được sử dụng, vui lòng thử Email khác!</p>
+                    </div> <br>";
+                echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";
+            }
+            else{
 
-            mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
+                mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
 
-            echo "<div class='message'>
-                      <p style=\"color: green;\">Đăng ký thành công!</p>
-                  </div> <br>";
-            echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
-         }
+                echo "<div class='message'>
+                        <p style=\"color: green;\">Đăng ký thành công!</p>
+                    </div> <br>";
+                echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
+            }
 
         }else{
          

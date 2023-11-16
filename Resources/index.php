@@ -31,6 +31,9 @@
         </div>
 
         <ul id="header__nav">
+
+            
+
             <li><a href="#">GIỎ HÀNG</a></li>
             
             <?php
@@ -91,15 +94,6 @@
             </div>
             <?php }?>
 
-            <!--<div class="phantrang">
-                <div class="button pre">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </div>
-
-                <div class="button next">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </div>-->
         </div>
     </div>
     <footer class="footer">
