@@ -31,9 +31,14 @@
         </div>
 
         <ul id="header__nav">
-
+            <?php 
+                if(isset($_SESSION['username'])){
+                    echo '<i class="fa-regular fa-user"></i>';
+                    echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
+                    session_destroy();
+                }
+            ?>
             
-
             <li><a href="#">GIỎ HÀNG</a></li>
             
             <?php
