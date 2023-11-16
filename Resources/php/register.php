@@ -31,7 +31,7 @@
             }
             else{
 
-                mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
+                mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Error Occured");
 
                 echo "<div class='message'>
                         <p style=\"color: green;\">Đăng ký thành công!</p>
