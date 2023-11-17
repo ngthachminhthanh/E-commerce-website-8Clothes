@@ -66,7 +66,12 @@
         </div>
         <div class="products-container">
             <div class="sort">
-                <p>Sắp xếp</p>
+                <label for="">Sắp xếp</label>
+                <select name="sapxep">
+                    <option value=""></option>
+                    <option value="highlow">Từ cao đến thấp</option>
+                    <option value="lowhigh">Từ thấp đến cao</option>
+                </select>    
             </div>
             <?php
             while($row = mysqli_fetch_assoc($all_product)){

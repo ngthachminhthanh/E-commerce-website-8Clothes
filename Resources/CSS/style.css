@@ -161,6 +161,12 @@ header #header__nav li a:hover:after {
 #content .products-container .sort{
     margin-left: 20px;
     margin-top: 30px;
+    display: flex;
+    align-items: center;
+    
+}
+.sort select {
+    margin-left: 10px; 
 }
 
 #content .products-container p {
