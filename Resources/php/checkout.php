@@ -75,7 +75,7 @@ $con->close();
 
 
 
-  <div class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
+  <main class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pt-28 sm:pb-64  lg:max-w-7xl lg:px-8">
     <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mt-8 mb-16">
         Đặt hàng
       </h1>
@@ -234,7 +234,7 @@ $con->close();
         </div>
       </div>
     </form>
-  </div>
+  </main>
 
 <?php
   include_once 'footer.php';

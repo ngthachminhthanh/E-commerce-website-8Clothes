@@ -158,7 +158,7 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
 </div>
 </main>';
 } else {
-  echo '<main class="bg-white h-full mt-20">
+  echo '<main class="bg-white h-full ">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
                       <div class="mb-6 mx-auto text-center">
               <svg class="mx-auto h-24 w-24 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
