@@ -43,6 +43,7 @@ body{
 .form-box form .input input{
     height: 40px;
     width: 100%;
+    background-color: rgba(220 220 220 / 50%);
     font-size: 16px;
     padding: 0 10px;
     border-radius: 5px;
