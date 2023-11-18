@@ -24,11 +24,10 @@
          $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
 
          if(mysqli_num_rows($verify_query) != 0 ){
-            /*echo "<div class='message'>
+            echo "<div class='message'>
                       <p>Email này đã được sử dụng, vui lòng thử Email khác!</p>
                   </div> <br>";
-            echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";*/
-            alert ("Email này đã được sử dụng, vui lòng thử Email khác!");
+            echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";
          }
          else{
 
