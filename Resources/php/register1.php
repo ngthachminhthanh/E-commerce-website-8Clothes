@@ -14,10 +14,11 @@
             <?php
             include("config.php");
             if(isset($_POST['submit'])){
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $age = $_POST['age'];
-                $password = $_POST['password'];
+              $username = mysqli_real_escape_string($con, $_POST['username']);
+              $email = mysqli_real_escape_string($con, $_POST['email']);
+              $age = mysqli_real_escape_string($con, $_POST['age']);
+              $password = mysqli_real_escape_string($con, $_POST['password']);
+          
 
                 $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
 
