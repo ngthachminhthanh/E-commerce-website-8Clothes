@@ -114,7 +114,7 @@ if (isset($_SESSION['new_order_id'])) {
             echo '</ul>
 
     <div class="sm:ml-40 sm:pl-6">
-        <dl class="grid grid-cols-2 gap-x-6 py-10 text-sm">
+        <dl class="grid grid-cols-1 gap-x-6 py-10 text-sm">
             <div>
                 <dt class="font-medium text-slate-900">Thông tin giao hàng</dt>
                 <dd class="mt-2 text-slate-700">
@@ -129,7 +129,7 @@ if (isset($_SESSION['new_order_id'])) {
             
         </dl>
 
-        <dl class="grid grid-cols-2 gap-x-6 border-t border-slate-200 py-10 text-sm">
+        <dl class="grid grid-cols-1 gap-x-6 border-t border-slate-200 py-10 text-sm">
             <div>
                 <dt class="font-medium text-slate-900">Phương thức thanh toán</dt>
                 <dd class="mt-2 text-slate-700">
@@ -179,5 +179,4 @@ if (isset($_SESSION['new_order_id'])) {
     echo "Không có ID đơn hàng mới.";
 }
 require_once('footer.php');
-?>
 ?>
