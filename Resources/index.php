@@ -39,7 +39,7 @@
                 }
             ?>
             
-            <li><a href="#">GIỎ HÀNG</a></li>
+            <li><a href="php/cart.php">GIỎ HÀNG</a></li>
             
             <?php
                 if(isset($_SESSION['valid'])){
