@@ -66,9 +66,9 @@ function updateCartItemQuantity(productId, quantity) {
 }
 </script>';
 
-if (isset($_SESSION['shopping_cart'])) {
+if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) {
 echo '
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
+    <main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
       <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
         Giỏ hàng
       </h1>
@@ -156,9 +156,29 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
     </div>
   </section>
 </div>
-</div>';
+</main>';
 } else {
-  echo '<div class="flex justify-center items-center h-[90vh]"><span class="text-9xl">Giỏ hàng trống.</span></div>';
+  echo '<main class="bg-white h-full">
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
+                      <div class="mb-6 mx-auto text-center">
+              <svg class="mx-auto h-24 w-24 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+</svg>
+              <h3 class="mt-2 text-lg font-medium text-slate-900 dark:text-slate-700">
+                  Hiện không có sản phẩm nào trong giỏ hàng
+              </h3>
+
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              </p>
+
+              <div class="mt-6">
+                  <a href="../index.php" class="btn btn-primary">
+                      Tiếp tục mua sắm
+                  </a>
+              </div>
+          </div>
+              </div>
+</main>';
 }
 echo '';
 include_once 'footer.php';
