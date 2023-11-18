@@ -68,7 +68,7 @@ function updateCartItemQuantity(productId, quantity) {
 
 if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) {
 echo '
-    <main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
+    <main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:pt-28 sm:pb-48 lg:px-0 pb-10">
       <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
         Giỏ hàng
       </h1>
@@ -158,7 +158,7 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
 </div>
 </main>';
 } else {
-  echo '<main class="bg-white h-full">
+  echo '<main class="bg-white h-full mt-20">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
                       <div class="mb-6 mx-auto text-center">
               <svg class="mx-auto h-24 w-24 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">

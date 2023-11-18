@@ -59,6 +59,7 @@
     </ul>
   </header> -->
 
+  <div class="page-container relative min-h-screen">
   <header>
         <div id="header__logo">
             <img src="./Image/logo_shopping.png" alt="logo">
