@@ -35,7 +35,7 @@ if (isset($_SESSION['new_order_id'])) {
 ?>
           
             <?php
-            echo '<div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+            echo '<main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 sm:pb-60 lg:px-8">
 <div class="max-w-xl">
     <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-4xl">
         Cảm ơn bạn đã đặt hàng!
@@ -170,7 +170,7 @@ if (isset($_SESSION['new_order_id'])) {
         </dl>
     </div>
 </div>
-</div>';
+</main>';
 
     } else {
         echo "Không tìm thấy thông tin đơn hàng.";
