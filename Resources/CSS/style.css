@@ -138,12 +138,16 @@ header #header__nav li a:hover:after {
     text-align: left;
 }
 
-.phanloai .loai p {
+.phanloai .loai a {
     padding: 18px 0;
     transition: 0.2s;
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    width: 200px;
 }
 
-.phanloai .loai p:hover {
+.phanloai .loai a:hover {
     cursor: pointer;
     background-color: #990B61;
     color: #fff;

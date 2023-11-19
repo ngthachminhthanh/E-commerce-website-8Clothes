@@ -1,8 +1,9 @@
 <?php
     session_start();
-    require_once './php/config.php';
+    require_once './config.php';
 
-    $sql = "SELECT * FROM `product`;";
+    $sql = "SELECT * FROM `product`
+    WHERE `Product category ID` = 4;";
     $all_product = $con->query($sql);
     
 ?>
@@ -11,15 +12,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="shortcut icon" href="./Image/title-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="../Image/title-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Online eStore</title>
 </head>
 <body>
 <header>
         <div id="header__logo">
-            <img src="./logo.jpg" alt="logo">
+            <img src="../logo.jpg" alt="logo">
         </div>
 
         <div class="searchBar">
@@ -38,14 +39,14 @@
                 }
             ?>
             
-            <li><a href="php/cart.php">GIỎ HÀNG</a></li>
+            <li><a href="./cart.php">GIỎ HÀNG</a></li>
             
             <?php
                 if(isset($_SESSION['valid'])){
-                    echo '<li><a href="index.php">ĐĂNG XUẤT</a></li>';
+                    echo '<li><a href="../index.php">ĐĂNG XUẤT</a></li>';
                 }
                 else {
-                    echo '<li><a href="./php/login.php">ĐĂNG NHẬP</a></li>';
+                    echo '<li><a href="./login.php">ĐĂNG NHẬP</a></li>';
                 }
             ?>
 
@@ -56,11 +57,11 @@
         <div class="phanloai">
             <h2>PHÂN LOẠI</h2>
             <div class="loai">
-                <p id="aonu"><a href="./php/AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
-                <p id="aonam"><a href="./php/AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
-                <p id="quanvaynu"><a href="./php/QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
-                <p id="quannam"><a href="./php/QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
-                <p id="phukien"><a href="./php/PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
+                <p id="aonu"><a href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
+                <p id="aonam"><a href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
+                <p id="quanvaynu"><a href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
+                <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
+                <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
             </div>
         </div>
         <div class="products-container">
@@ -126,7 +127,7 @@
 		</div>
 	</footer>
 </body>
-<script src='./JS/index.js'></script>
+<script src='../JS/index.js'></script>
 
 <script>
 function addToCart(product_id, product_name, product_image_link, product_price) {
@@ -135,7 +136,7 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
                "&product_name=" + product_name +
                "&product_image_link=" + product_image_link +
                "&product_price=" + product_price;
-    xhr.open("POST", "./php/services/add_to_cart.php", true);
+    xhr.open("POST", "./services/add_to_cart.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function() {
