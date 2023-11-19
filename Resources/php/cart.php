@@ -140,16 +140,17 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
     </div>
 
     <div class="mt-10">
-      <a href="checkout.php" class="btn btn-primary btn-xl w-full">
+      <a href="checkout.php" class="btn btn-primary btn-xl w-full" 
+        style="background: #990B61; color:#fff; border-color: #000;">
         Mua hàng
       </a>
     </div>
 
     <div class="mt-6 text-center text-sm">
       <p>
-        hoặc
-        <a href="../index.php" class="btn btn-link">
-          Tiếp tục mua sắm
+        <a href="../index.php" class="btn btn-link"
+          style="color: #990B61;">
+          Hoặc tiếp tục mua sắm
           <span aria-hidden="true"> →</span>
         </a>
       </p>
@@ -172,7 +173,7 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
               </p>
 
               <div class="mt-6">
-                  <a href="../index.php" class="btn btn-primary">
+                  <a href="../index.php" class="btn btn-primary" style="background: #990B61; color:#fff; border-color: #000;">
                       Tiếp tục mua sắm
                   </a>
               </div>

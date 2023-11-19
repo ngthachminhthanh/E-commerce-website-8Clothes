@@ -4,13 +4,13 @@
     border: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: 'GI', 'Courier New';
+    font-family: 'tahoma';
     font-size: 100%;
 }
 
 @font-face {
-    font-family: 'GI';
-    src: url(../Font/zhcn.ttf);
+    font-family: 'tahoma';
+    src: url(../Font/tahoma.ttf);
 }
 
 header {
@@ -33,6 +33,7 @@ header {
 
 header #header__logo { 
     width: 100px;
+    margin-left: 15px;
 }
 
 header #header__logo img {
@@ -57,7 +58,6 @@ header .searchBar input {
     width: 350px;
     height: 20px;
     padding: 0 10px;
-    border-bottom: 2px solid #000;
 }
 
 .searchBar .searchIcon {
@@ -69,7 +69,7 @@ header .searchBar input {
 .searchBar .searchIcon:hover {
     cursor: pointer;
     color: #fff;
-    background-color: #000;
+    background-color: #990B61;
     border-radius: 5px;
 }
 
@@ -95,7 +95,7 @@ header #header__nav li a {
 header #header__nav li a:hover {
     border-radius: 5px;
     color: #fff;
-    background-color: #000;
+    background-color: #990B61;
 }
 
 /*header #header__nav li a:after {
@@ -129,7 +129,7 @@ header #header__nav li a:hover:after {
 }
 
 #content .phanloai h2{
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .phanloai .loai {
@@ -139,13 +139,13 @@ header #header__nav li a:hover:after {
 }
 
 .phanloai .loai p {
-    padding: 16px 0;
+    padding: 18px 0;
     transition: 0.2s;
 }
 
 .phanloai .loai p:hover {
     cursor: pointer;
-    background-color: #000;
+    background-color: #990B61;
     color: #fff;
     border-radius: 5px;
 }
@@ -229,29 +229,35 @@ header #header__nav li a:hover:after {
 }
 
 #content .product .product-description span {
-    font-size: 14px;
+    font-size: 18px;
     padding-left: 10px;
 }
 
 #content .product .product-description h5 {
     padding-top: 7px;
-    padding-left: 15px;
+    padding-left: 20px;
     color: #8a8888;
-    font-size: 12px;
+    font-size: 16px;
+}
+
+#content .product .product-description .star {
+    padding-left: 30px;
+    padding-top: 7px;
 }
 
 #content .product .product-description i {
-    padding-left: 15px;
-    font-size: 12px;
-    color: rgb(243,181,25);
+    padding-left: 5px;
+    font-size: 16px;
+    color: #990B61;
+    
 }
 
 #content .product .product-description h4 {
-    padding-left: 15px;
+    padding-left: 40px;
     padding-top: 7px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
-    color: #088178;
+    color: #990B61;
 }
 
 #content .product a {
@@ -265,10 +271,10 @@ header #header__nav li a:hover:after {
     height: 40px;
     line-height: 43px;
     border-radius: 50px;
-    background-color: #e8f6ea;
+    background-color: #f0f0f0;
     font-weight: 500;
-    color: #088178;
-    border: 1px solid #cce7d0;
+    color: #990B61;
+    border: 1px solid #f0f0f0;
     position: absolute;
     bottom: 20px;
     right: 25px;
@@ -300,7 +306,7 @@ ul {
 }
 
 .footer-col h4 {
-	font-size: 14px;
+	font-size: 16px;
 	color: #FFF;
 	text-transform: capitalize;
 	margin-bottom: 20px;
@@ -325,7 +331,7 @@ ul {
 .footer-col ul li a {
 	color: #DDD;
 	display: block;
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: 300;
 	text-transform: capitalize;
 	text-decoration: none;

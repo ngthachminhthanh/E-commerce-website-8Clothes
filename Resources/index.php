@@ -13,14 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="shortcut icon" href="./Image/title-icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./Font/zhcn.ttf">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Online eStore</title>
 </head>
 <body>
 <header>
         <div id="header__logo">
-            <img src="./Image/logo_shopping.png" alt="logo">
+            <img src="./logo.jpg" alt="logo">
         </div>
 
         <div class="searchBar">
@@ -55,7 +54,7 @@
 
     <div id="content">
         <div class="phanloai">
-            <h2>PHÂN LOẠI SẢN PHẨM</h2>
+            <h2>PHÂN LOẠI</h2>
             <div class="loai">
                 <p id="aonu">&nbsp;&nbsp;&nbsp;Áo nữ</p>
                 <p id="aonam">&nbsp;&nbsp;&nbsp;Áo nam</p> 
@@ -98,7 +97,7 @@
                                 <h4><?php echo $row["Price"]?> VND</h4>
                             </div>
                             <a href="#" onclick="addToCart(<?php echo $row['Id']; ?>, '<?php echo $row['Name']; ?>', '<?php echo $row['Image']; ?>', <?php echo $row['Price']; ?>, <?php echo '1' ?>)" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                        </td>
+                    </td>
                     </tr>
                 </table>
             </div>

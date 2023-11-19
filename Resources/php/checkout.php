@@ -228,7 +228,7 @@ $con->close();
             </dl>
 
             <div class="border-t border-slate-200 px-4 py-6 sm:px-6">
-              <button type="submit" class="btn btn-primary btn-xl w-full bg-[#0d6efd]">Đặt hàng</button>
+              <button type="submit" class="btn btn-primary btn-xl w-full bg-[#0d6efd]" style="background: #990B61; color:#fff; border-color: #000;">Đặt hàng</button>
             </div>
           </div>
         </div>

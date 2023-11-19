@@ -46,21 +46,21 @@
             <header>Đăng ký</header>
             <form action="" method="post" onsubmit="return validateForm()">
                 <div class="field input">
-                    <label for="username">Tên người dùng</label>
+                    <label for="username" style="margin: 7px;">Tên người dùng</label>
                     <input type="text" name="username" id="username" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <label for="email">Email</label>
+                    <label for="email" style="margin: 7px;">Email</label>
                     <input type="email" name="email" id="email" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <label for="age">Tuổi</label>
+                    <label for="age" style="margin: 7px;">Tuổi</label>
                     <input type="number" name="age" id="age" autocomplete="off" required min="0">
                 </div>
                 <div class="field input">
-                    <label for="password">Mật khẩu</label>
+                    <label for="password" style="margin: 7px;">Mật khẩu</label>
                     <input type="password" name="password" id="password" autocomplete="off" required>
                 </div>
 

@@ -45,12 +45,12 @@ session_start();
                 <header>Đăng nhập</header>
                 <form action="" method="post">
                     <div class="field input">
-                        <label for="email">Email</label>
+                        <label for="email" style="margin: 7px;">Email</label>
                         <input type="email" name="email" id="email" autocomplete="off" required>
                     </div>
 
                     <div class="field input">
-                        <label for="password">Mật khẩu</label>
+                        <label for="password" style="margin: 7px;">Mật khẩu</label>
                         <input type="password" name="password" id="password" autocomplete="off" required>
                     </div>
 
