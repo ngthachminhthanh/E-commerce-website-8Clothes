@@ -1,8 +1,8 @@
 <?php
+session_start();
 include_once("config.php");
 include_once 'header.php';
 
-session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Lấy thông tin từ biểu mẫu
@@ -75,7 +75,7 @@ $con->close();
 
 
 
-  <main class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pt-28 sm:pb-64  lg:max-w-7xl lg:px-8">
+  <main class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pt-28 sm:pb-64  lg:max-w-7xl lg:px-8 dark:bg-gray-800">
     <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mt-8 mb-16">
         Đặt hàng
       </h1>
@@ -98,9 +98,9 @@ $con->close();
           <!-- <h2 class="text-lg font-medium text-slate-900">Contact information</h2> -->
 
           <div class="mt-4">
-            <label class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-700" for="contact-email"> Email </label>
+            <label class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-50" for="contact-email"> Email </label>
             <div class="mt-1">
-              <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-700 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="email" id="contact-email" name="contact-email" autocomplete="email" />
+              <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="email" id="contact-email" name="contact-email" autocomplete="email" />
             </div>
           </div>
         </div>
@@ -109,23 +109,23 @@ $con->close();
 
           <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
             <div class="sm:col-span-2">
-              <label class="block text-sm font-medium text-slate-700 dark:text-slate-700" for="shipping-name"> Họ tên </label>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-name"> Họ tên </label>
               <div class="mt-1">
-                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-700 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" id="shipping-name" placeholder="injection" name="shipping-name" autocomplete="given-name" />
+                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" id="shipping-name" placeholder="injection" name="shipping-name" autocomplete="given-name" />
               </div>
             </div>
 
             <div class="sm:col-span-2">
-              <label class="block text-sm font-medium text-slate-700 dark:text-slate-700" for="shipping-address-line-1"> Địa chỉ </label>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-address-line-1"> Địa chỉ </label>
               <div class="mt-1">
-                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-700 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" placeholder="injection"  name="shipping-address" id="shipping-address" autocomplete="street-address" />
+                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" placeholder="injection"  name="shipping-address" id="shipping-address" autocomplete="street-address" />
               </div>
             </div>
 
             <div class="sm:col-span-2">
-              <label class="block text-sm font-medium text-slate-700 dark:text-slate-700" for="shipping-phone"> Số điện thoại </label>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-phone"> Số điện thoại </label>
               <div class="mt-1">
-                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-700 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="tel" placeholder="injection"  name="shipping-phone" id="shipping-phone" />
+                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="tel" placeholder="injection"  name="shipping-phone" id="shipping-phone" />
               </div>
             </div>
           </div>
@@ -157,9 +157,9 @@ $con->close();
         <div class="mt-10 border-t border-slate-200 pt-10">
           <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
             <div class="sm:col-span-2">
-              <label class="block text-sm font-medium text-slate-700 dark:text-slate-700" for="notes"> Ghi chú (không bắt buộc) </label>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="notes"> Ghi chú (không bắt buộc) </label>
               <div class="mt-1">
-                <textarea class="block w-full appearance-none rounded-md border border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-700 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" placeholder="injection"  name="order_notes" id="notes" placeholder="..."> </textarea>
+                <textarea class="block w-full appearance-none rounded-md border border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" placeholder="injection"  name="order_notes" id="notes" placeholder="..."> </textarea>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 
-<footer class="footer absolute bottom-0">
+<footer class="footer absolute bottom-0 dark:bg-gray-800">
 	<div class="container row">
 		<div class="footer-col">
 			<h4>Liên hệ với chúng tôi</h4>
