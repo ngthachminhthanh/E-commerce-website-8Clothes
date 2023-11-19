@@ -20,7 +20,9 @@
 <body>
 <header>
         <div id="header__logo">
-            <img src="../logo.jpg" alt="logo">
+            <a href="../index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
+                <img src="../logo.jpg" alt="logo">
+            </a>
         </div>
 
         <div class="searchBar">

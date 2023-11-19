@@ -19,9 +19,10 @@
 <body>
 <header>
         <div id="header__logo">
-            <img src="./Image/logo_shopping.png" alt="logo">
+            <a href="index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
+                <img src="../logo.jpg" alt="logo">
+            </a>
         </div>
-
         <div class="searchBar">
             <div class="searchIcon">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -185,24 +186,6 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
 ?>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-   /*$(document).ready(function () {
-        // Sự kiện click nút áo nữ
-        $("#aonu").click(function () {
-            //alert("111");
-            // Gửi yêu cầu AJAX để lấy sản phẩm áo nữ
-            $.ajax({
-                url: "./php/filter.php", // Đường dẫn đến file xử lý dữ liệu
-                method: "POST",
-                data: {category: 'áo'}, // Truyền category = "AoNu" để lọc áo nữ
-                success: function (data) {
-                    console.log(data);
-                    $("#content").html(data);
-                }
-            });
-            //alert("222");
-        });
-        
-    });*/
     $(document).ready(function () {
         // Sự kiện click nút áo nữ
         $("#submit").click(function () {
