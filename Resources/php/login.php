@@ -36,7 +36,7 @@ session_start();
                     echo    "<div class='message'>
                                     <p>Sai tài khoản hoặc mật khẩu!</p>
                                 </div> <br>";
-                    echo    "<a href='login1.php'><button class='btn'>Quay lại</button>";
+                    echo    "<a href='login.php'><button class='btn'>Quay lại</button>";
                 }
             } else {
 
@@ -58,7 +58,7 @@ session_start();
                         <input type="submit" class="btn" name="submit" value="Đăng nhập" required>
                     </div>
                     <div class="links">
-                        Chưa có tài khoản? <a href="register1.php">Đăng ký ngay</a>
+                        Chưa có tài khoản? <a href="register.php">Đăng ký ngay</a>
                     </div>
                 </form>
         </div>

@@ -36,7 +36,7 @@
                     echo "<div class='message'>
                               <p style=\"color: green;\">Đăng ký thành công!</p>
                           </div> <br>";
-                    echo "<a href='login1.php'><button class='btn'>Đăng nhập ngay</button>";
+                    echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
                 }
 
             }else{
@@ -68,7 +68,7 @@
                     <input type="submit" class="btn" name="submit" value="Đăng ký">
                 </div>
                 <div class="links">
-                    Đã là thành viên? <a href="login1.php">Đăng nhập</a>
+                    Đã là thành viên? <a href="login.php">Đăng nhập</a>
                 </div>
             </form>
             <?php } ?>
