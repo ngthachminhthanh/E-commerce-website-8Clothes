@@ -8,72 +8,72 @@
     <title>Đăng ký</title>
 </head>
 <body>
-    <div class="container">
+      <div class="container">
         <div class="box form-box">
 
-            <?php
-            include("config.php");
-            if(isset($_POST['submit'])){
-              $username = mysqli_real_escape_string($con, $_POST['username']);
-              $email = mysqli_real_escape_string($con, $_POST['email']);
-              $age = mysqli_real_escape_string($con, $_POST['age']);
-              $password = mysqli_real_escape_string($con, $_POST['password']);
-          
+        <?php 
+         include("config.php");
+         if(isset($_POST['submit'])){
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $age = $_POST['age'];
+            $password = $_POST['password'];
 
-                $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
+         //verifying the unique email
 
-                if(mysqli_num_rows($verify_query) != 0 ){
-                    echo "<div class='message'>
-                              <p>Email này đã được sử dụng, vui lòng thử Email khác!</p>
-                          </div> <br>";
-                    echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";
-                }
-                else{
-                    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-                    mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$hashed_password')") or die("Error Occured");
-                    
+         $verify_query = mysqli_query($con,"SELECT Email FROM customer WHERE Email='$email'");
 
-                    echo "<div class='message'>
-                              <p style=\"color: green;\">Đăng ký thành công!</p>
-                          </div> <br>";
-                    echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
-                }
+         if(mysqli_num_rows($verify_query) != 0 ){
+            echo "<div class='message'>
+                      <p>Email này đã được sử dụng, vui lòng thử Email khác!</p>
+                  </div> <br>";
+            echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";
+         }
+         else{
 
-            }else{
+            mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Error Occured");
 
-            ?>
+            echo "<div class='message'>
+                      <p style=\"color: green;\">Đăng ký thành công!</p>
+                  </div> <br>";
+            echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
+         }
+
+        }else{
+         
+        ?>
 
             <header>Đăng ký</header>
             <form action="" method="post" onsubmit="return validateForm()">
                 <div class="field input">
-                    <label for="username">Tên người dùng</label>
+                    <label for="username" style="margin: 7px;">Tên người dùng</label>
                     <input type="text" name="username" id="username" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <label for="email">Email</label>
+                    <label for="email" style="margin: 7px;">Email</label>
                     <input type="email" name="email" id="email" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <label for="age">Tuổi</label>
+                    <label for="age" style="margin: 7px;">Tuổi</label>
                     <input type="number" name="age" id="age" autocomplete="off" required min="0">
                 </div>
                 <div class="field input">
-                    <label for="password">Mật khẩu</label>
+                    <label for="password" style="margin: 7px;">Mật khẩu</label>
                     <input type="password" name="password" id="password" autocomplete="off" required>
                 </div>
 
                 <div class="field">
-                    <input type="submit" class="btn" name="submit" value="Đăng ký">
+                    <input type="submit" class="btn" name="submit" value="Đăng ký" required>
                 </div>
                 <div class="links">
                     Đã là thành viên? <a href="login.php">Đăng nhập</a>
                 </div>
             </form>
-            <?php } ?>
         </div>
-    </div>
+        <?php } ?>
+      </div>
 </body>
 <script>
 function validateForm() {
