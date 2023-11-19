@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Lỗi: " . $sql . "<br>" . $con->error;
   }
 }
-if (!isset($_SESSION['shopping_cart'])) {
+if (!isset($_SESSION['shopping_cart']) || count($_SESSION['shopping_cart']) == 0) {
   // return;
   header("Location: ./cart.php");
   // header("Location: ../index.php");
