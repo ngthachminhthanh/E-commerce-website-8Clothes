@@ -97,7 +97,7 @@
                             </div>
                                 <h4><?php echo $row["Price"]?> VND</h4>
                             </div>
-                            <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="#" onclick="addToCart(<?php echo $row['Id']; ?>, '<?php echo $row['Name']; ?>', '<?php echo $row['Image']; ?>', <?php echo $row['Price']; ?>, <?php echo '1' ?>)" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
                         </td>
                     </tr>
                 </table>
@@ -128,4 +128,24 @@
 	</footer>
 </body>
 <script src='./JS/index.js'></script>
+
+<script>
+function addToCart(product_id, product_name, product_image_link, product_price) {
+    var xhr = new XMLHttpRequest();
+    var data = "product_id=" + product_id +
+               "&product_name=" + product_name +
+               "&product_image_link=" + product_image_link +
+               "&product_price=" + product_price;
+    xhr.open("POST", "./php/services/add_to_cart.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            alert(xhr.responseText);
+        }
+    };
+
+    xhr.send(data);
+}
+</script>
 </html>
