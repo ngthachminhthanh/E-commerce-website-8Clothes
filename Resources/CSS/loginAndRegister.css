@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'tahoma';
 }
 body{
     background: #e4e9f7;
@@ -43,6 +43,7 @@ body{
 .form-box form .input input{
     height: 40px;
     width: 100%;
+    background-color: rgba(220 220 220 / 50%);
     font-size: 16px;
     padding: 0 10px;
     border-radius: 5px;
@@ -51,7 +52,7 @@ body{
 }
 .btn{
     height: 35px;
-    background: rgba(76,68,182,0.808);
+    background: #990B61;
     border: 0;
     border-radius: 5px;
     color: #fff;
