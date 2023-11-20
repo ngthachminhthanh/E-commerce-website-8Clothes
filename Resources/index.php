@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/filter.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <link rel="shortcut icon" href="./Image/title-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Online eStore</title>
@@ -20,15 +20,15 @@
 <header>
         <div id="header__logo">
             <a href="index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
-                <img src="../logo.jpg" alt="logo">
+                <img src="./logo.jpg" alt="logo">
             </a>
         </div>
         <div class="searchBar">
             <div class="searchIcon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <button id="submit">submit</button>
+                <button type="submit" id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
-            
             <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
         </div>
 
@@ -41,7 +41,7 @@
                 }
             ?>
             
-            <li><a href="#">GIỎ HÀNG</a></li>
+            <li><a href="php/cart.php">GIỎ HÀNG</a></li>
             
             <?php
                 if(isset($_SESSION['valid'])){
@@ -99,8 +99,8 @@
                             </div>
                                 <h4><?php echo $row["Price"]?> VND</h4>
                             </div>
-                            <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                        </td>
+                            <a href="#" onclick="addToCart(<?php echo $row['Id']; ?>, '<?php echo $row['Name']; ?>', '<?php echo $row['Image']; ?>', <?php echo $row['Price']; ?>, <?php echo '1' ?>)" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </td>
                     </tr>
                 </table>
             </div>
@@ -151,47 +151,13 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
 }
 </script>
 </html>
-<?php
-    function showProducts($product) {
-        foreach ($product as $row) {
-            echo '
-            <div class="product">
-                <table id="myTable">
-                    <tr>
-                        <td>
-                            <div class="product--hoverEffect">
-                                <img class="product-img" src="'.$row["Image"].'" alt="test">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="product-description">
-                                <span>'.$row["Name"].'</span> 
-                                <h5>'.$row["Description"].'</h5>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <h4>'.$row["Price"].' VND</h4>
-                            </div>
-                            <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                        </td>
-                    </tr>
-                </table>
-            </div>';
-        }
-    }
-?>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function () {
         // Sự kiện click nút áo nữ
-        $("#submit").click(function () {
+        $("#searchButton").click(function () {
             // Lấy giá trị từ trường input
             var keyword = $("#input").val().trim();
-
             // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
             $.ajax({
                 url: "./php/filter.php", // Đường dẫn đến file xử lý tìm kiếm
