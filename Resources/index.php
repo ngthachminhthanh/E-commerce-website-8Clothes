@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <?php include_once("./php/components/dependencies.php") ?>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <?php include_once("./php/components/dependencies.php") ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Online eStore</title>
 </head>
 <body>
@@ -25,14 +25,14 @@
                 <img src="./logo.jpg" alt="logo">
             </a>
         </div>
-        <div class="searchBar">
+        <form class="searchBar" method="GET">
+            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
             <div class="searchIcon">
-                <button type="submit" id="searchButton">
+                <button type="submit" name="submit" id="searchButton">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
-            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
-        </div>
+        </form>
 
         <ul id="header__nav">
             <?php 
@@ -77,8 +77,15 @@
                     <option value="lowhigh">Từ thấp đến cao</option>
                 </select>    
             </div>
+
             <?php
-            while($row = mysqli_fetch_assoc($all_product)){
+            if(isset($_GET['submit'])){
+                $keyword = $_GET['input'];
+                $sql_search = "SELECT * FROM product WHERE `Name` LIKE '%$keyword%' OR `Description` LIKE '%$keyword%' ";
+                $exec_search = mysqli_query($con, $sql_search);
+                if(mysqli_num_rows($exec_search) > 0){
+                    while($row = mysqli_fetch_assoc($exec_search)) {
+
             ?>
             <div class="product">
                 <table id="myTable">
@@ -106,7 +113,44 @@
                     </tr>
                 </table>
             </div>
-            <?php }?>
+
+            <?php 
+                    }
+                }else {
+                    echo "Không tìm thấy sản phẩm nào!";
+                }
+            } else {
+                while($row = mysqli_fetch_assoc($all_product)){
+            ?>
+            <div class="product">
+                <table id="myTable">
+                    <tr>
+                    <td>
+                        <div class="product--hoverEffect">
+                            <img class="product-img" src="<?php echo $row["Image"]; ?>" alt="test">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="product-description">
+                            <span><?php echo $row["Name"]?></span> 
+                            <h5><?php echo $row["Description"]?></h5>
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                                <h4><?php echo $row["Price"]?> VND</h4>
+                            </div>
+                            <a href="#" onclick="addToCart(<?php echo $row['Id']; ?>, '<?php echo $row['Name']; ?>', '<?php echo $row['Image']; ?>', <?php echo $row['Price']; ?>, <?php echo '1' ?>)" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </td>
+                    </tr>
+                </table>
+            </div>
+            <?php
+                } }
+            ?>
 
         </div>
     </div>
@@ -136,23 +180,6 @@
 
 
 <script>
-    $(document).ready(function () {
-        // Sự kiện click nút áo nữ
-        $("#searchButton").click(function () {
-            // Lấy giá trị từ trường input
-            var keyword = $("#input").val().trim();
-            // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
-            $.ajax({
-                url: "./filterindex.php", // Đường dẫn đến file xử lý tìm kiếm
-                method: "POST",
-                data: { category: keyword },
-                success: function (data) {
-                    // Cập nhật nội dung trang với kết quả tìm kiếm
-                    $("#content").html(data);
-                }
-            });
-        });
-        
-    });
+    
 </script>
 </html>
