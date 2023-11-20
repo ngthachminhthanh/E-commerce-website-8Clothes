@@ -1,6 +1,6 @@
 <?php
 include_once("config.php");
-include_once 'header.php';
+include_once './components/header.php';
 
 session_start();
 
@@ -178,5 +178,5 @@ if (isset($_SESSION['new_order_id'])) {
 } else {
     echo "Không có ID đơn hàng mới.";
 }
-require_once('footer.php');
+require_once('./components/footer.php');
 ?>

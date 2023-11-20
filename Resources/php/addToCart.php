@@ -13,7 +13,7 @@
 // Start or resume the session
 session_start();
 
-require_once('header.php');
+require_once('./components/header.php');
 include("config.php");
 
 // session_destroy();
@@ -82,9 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_add_to_cart'])) 
     <?php endforeach; ?>
   </div>
 <?php
-require_once('header.php');
+require_once('./components/header.php');
 
 
-require_once('footer.php');
+require_once('./components/footer.php');
 ?>
 </html>
