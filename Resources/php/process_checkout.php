@@ -1,8 +1,8 @@
 <?php
+session_start();
 include_once("config.php");
 include_once './components/header.php';
 
-session_start();
 
 
 // $isLoggedIn = isset($_SESSION['user_id']);
@@ -13,7 +13,7 @@ session_start();
 
 if (isset($_SESSION['new_order_id'])) {
     $orderId = $_SESSION['new_order_id'];
-    unset($_SESSION['shopping_cart']);
+    // unset($_SESSION['shopping_cart']);
     // Lấy thông tin đơn hàng 
     $orderQuery = "SELECT * FROM orders WHERE id = '$orderId'";
     $orderResult = $con->query($orderQuery);
@@ -37,7 +37,7 @@ if (isset($_SESSION['new_order_id'])) {
             <?php
             echo '<main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 sm:pb-60 lg:px-8">
 <div class="max-w-3xl">
-    <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-4xl">
+    <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
         Cảm ơn bạn đã đặt hàng!
     </h1>
     <p class="mt-2 text-base text-slate-500">
@@ -45,39 +45,39 @@ if (isset($_SESSION['new_order_id'])) {
     </p>
     <dl class="mt-12 grid flex-1 grid-cols-2 gap-6 text-sm sm:col-span-4 sm:grid-cols-4 lg:col-span-2">
         <div>
-            <dt class="font-medium text-gray-900">Mã đơn hàng</dt>
+            <dt class="font-medium  text-slate-900 dark:text-slate-50 ">Mã đơn hàng</dt>
             <dd class="mt-1 font-medium text-sky-600">' . $order['order_number'] . '</dd>
         </div>
         <div>
-            <dt class="font-medium text-gray-900">Ngày đặt</dt>
+            <dt class="font-medium  text-slate-900 dark:text-slate-50 ">Ngày đặt</dt>
             <dd class="mt-1 font-medium text-sky-600"> ' . $order['order_date'] . '</dd>
         </div>
         <div>
-            <dt class="font-medium text-gray-900">Trạng thái thanh toán</dt>
+            <dt class="font-medium  text-slate-900 dark:text-slate-50 ">Trạng thái thanh toán</dt>
             <dd class="mt-1 font-medium text-sky-600">' . $order['payment_status'] . '</dd>
         </div>
         <div>
-            <dt class="font-medium text-gray-900">Trạng thái vận chuyển</dt>
+            <dt class="font-medium  text-slate-900 dark:text-slate-50 ">Trạng thái vận chuyển</dt>
             <dd class="mt-1 font-medium text-sky-600">' . $order['shipping_status'] . '</dd>
         </div>
     </dl>
 </div>
 
-<div class="mt-10 border-t border-slate-200">
+<div class="mt-10 border-t border-slate-200 dark:!border-gray-500 ">
 
-    <ul role="list" class="divide-y divide-slate-200 border-b border-slate-200">
+    <ul role="list" class="divide-y divide-slate-200 border-b border-slate-200 dark:!border-gray-500 ">
                                 
                   ';
             while ($item = $orderItemsResult->fetch_assoc()) {
                 $total_product_price_vnd = number_format(($item['quantity'] * $item['price']) / 1, 0, ',', '.') . ' đ';
                 echo '    <li class="py-4 sm:py-6">
                 <div class="flex items-center sm:items-stretch">
-                    <div class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-slate-200 sm:h-40 sm:w-40">
+                    <div class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-slate-200 dark:!border-gray-500  sm:h-40 sm:w-40">
                                                                 <img alt=" ' . $item['Name'] . '" class="h-full w-full object-cover object-center" src=" ' . $item['Image'] . '">
                                                         </div>
                     <div class="ml-6 flex flex-col flex-1 justify-between text-sm">
                         <div>
-                            <div class="font-medium text-slate-900 text-lg sm:flex sm:justify-between">
+                            <div class="font-medium  text-slate-900 dark:text-slate-50 text-lg sm:flex sm:justify-between">
                                 <h4>
                                     ' . $item['quantity'] . 'x
                                    ' . $item['Name'] . '
@@ -101,7 +101,7 @@ if (isset($_SESSION['new_order_id'])) {
                     </div>
                 </div>
                 <div class="mt-6 sm:hidden">
-                    <div class="mt-6 flex items-center space-x-4 divide-x divide-slate-200 border-t border-slate-200 pt-4 text-sm font-medium">
+                    <div class="mt-6 flex items-center space-x-4 divide-x divide-slate-200 border-t border-slate-200 dark:!border-gray-500  pt-4 text-sm font-medium">
                         <div class="flex flex-1 justify-center">
                             <a href="https://" class="btn btn-link whitespace-nowrap">
                                 Xem sản phẩm
@@ -116,8 +116,8 @@ if (isset($_SESSION['new_order_id'])) {
     <div class="sm:ml-40 sm:pl-6">
         <dl class="grid grid-cols-1 gap-x-6 py-10 text-sm">
             <div>
-                <dt class="font-medium text-slate-900">Thông tin giao hàng</dt>
-                <dd class="mt-2 text-slate-700">
+                <dt class="font-medium  text-slate-900 dark:text-slate-50 ">Thông tin giao hàng</dt>
+                <dd class="mt-2 text-slate-700 dark:text-slate-50/80 ">
                     <address class="not-italic">
                     ' . $OrDetail['name'] . '<br>
                     ' . $OrDetail['address'] . ' <br>
@@ -129,10 +129,10 @@ if (isset($_SESSION['new_order_id'])) {
             
         </dl>
 
-        <dl class="grid grid-cols-1 gap-x-6 border-t border-slate-200 py-10 text-sm">
+        <dl class="grid grid-cols-1 gap-x-6 border-t border-slate-200 dark:!border-gray-500  py-10 text-sm">
             <div>
-                <dt class="font-medium text-slate-900">Phương thức thanh toán</dt>
-                <dd class="mt-2 text-slate-700">
+                <dt class="font-medium  text-slate-900 dark:text-slate-50 ">Phương thức thanh toán</dt>
+                <dd class="mt-2  text-slate-700 dark:text-slate-50/80 ">
                     <p>Thanh toán khi nhận hàng</p>
                 </dd>
             </div>
@@ -142,28 +142,28 @@ if (isset($_SESSION['new_order_id'])) {
         </dl>
 
 
-        <dl class="space-y-6 border-t border-slate-200 pt-10 text-sm">
+        <dl class="space-y-6 border-t border-slate-200 dark:!border-gray-500  pt-10 text-sm">
             <div class="flex justify-between">
-                <dt class="font-medium text-slate-900">Giá trị đơn hàng</dt>
-                <dd class="text-slate-700">
+                <dt class="font-medium text-slate-900 dark:text-slate-50 ">Giá trị đơn hàng</dt>
+                <dd class="text-slate-700 dark:text-slate-50/80">
                 ' . $total_price_vnd . '
                 </dd>
             </div>
             <div class="flex justify-between">
-                <dt class="font-medium text-slate-900">Phí vận chuyển</dt>
-                <dd class="text-slate-700">
+                <dt class="font-medium text-slate-900 dark:text-slate-50 ">Phí vận chuyển</dt>
+                <dd class="text-slate-700 dark:text-slate-50/80">
                     0
                 </dd>
             </div>
             <div class="flex justify-between">
-                <dt class="font-medium text-slate-900">Thuế</dt>
-                <dd class="text-slate-700">
+                <dt class="font-medium text-slate-900 dark:text-slate-50 ">Thuế</dt>
+                <dd class="text-slate-700 dark:text-slate-50/80">
                     0
                 </dd>
             </div>
             <div class="flex justify-between">
-                <dt class="font-medium text-slate-900">Tổng thanh toán</dt>
-                <dd class="text-slate-900">
+                <dt class="font-medium text-slate-900 dark:text-slate-50 ">Tổng thanh toán</dt>
+                <dd class="text-slate-900 dark:text-slate-50">
                 ' . $total_price_vnd . '
                 </dd>
             </div>

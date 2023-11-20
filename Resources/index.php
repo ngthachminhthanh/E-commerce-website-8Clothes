@@ -12,8 +12,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="shortcut icon" href="./Image/title-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <?php include_once("./php/components/dependencies.php") ?>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Online eStore</title>
 </head>
 <body>
@@ -132,27 +134,7 @@
 </body>
 <script src='./JS/index.js'></script>
 
-<script>
-function addToCart(product_id, product_name, product_image_link, product_price) {
-    var xhr = new XMLHttpRequest();
-    var data = "product_id=" + product_id +
-               "&product_name=" + product_name +
-               "&product_image_link=" + product_image_link +
-               "&product_price=" + product_price;
-    xhr.open("POST", "./php/services/add_to_cart.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText);
-        }
-    };
-
-    xhr.send(data);
-}
-</script>
-</html>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function () {
         // Sự kiện click nút áo nữ
@@ -173,3 +155,4 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
         
     });
 </script>
+</html>
