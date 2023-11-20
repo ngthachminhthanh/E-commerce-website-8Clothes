@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="../Image/title-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="./Font/zhcn.ttf">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <?php include_once("dependencies.php") ?>
+  <?php  include_once("dependencies.php")?>
   <style>
     *,
     *::before,
@@ -75,19 +75,16 @@
                     echo '<i class="fa-regular fa-user"></i>';
                     echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
                     session_destroy();
-                }
-            ?>
+                }?>
             
             <li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 " href="cart.php">GIỎ HÀNG</a></li>
-            
             <?php
                 if(isset($_SESSION['valid'])){
                     echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 " href="index.php">ĐĂNG XUẤT</a></li>';
                 }
                 else {
                     echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 "  href="./login.php">ĐĂNG NHẬP</a></li>';
-                }
-            ?>
+                }?>
           <button
             id="theme-toggle"
             type="button"

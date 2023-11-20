@@ -75,7 +75,7 @@ echo '
     
       <div class="mt-16">
         <section >';
-echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-slate-200">';
+echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-slate-200 dark:!border-gray-500 ">';
 
 
 // if (isset($_SESSION['shopping_cart'])) {
@@ -83,8 +83,8 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
   foreach ($_SESSION['shopping_cart'] as $productID => $product) {
     $total_price += ($product['product_price'] * $product['quantity']);
     $product_price_vnd = number_format($product['product_price'] / 1, 0, ',', '.') . ' đ';
-    echo '<li class="flex py-6">
-      <div class="flex-shrink-0 border border-slate-200 rounded-md">
+    echo '<li class="flex py-6 border-slate-200 dark:!border-gray-500">
+      <div class="flex-shrink-0 rounded-md">
         <img alt="' . $product['product_name'] . '" class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32" src="' . $product['product_image_link'] . '">
       </div>
 

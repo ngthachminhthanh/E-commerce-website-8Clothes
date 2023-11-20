@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include_once("config.php");
 include_once './components/header.php';
 
@@ -50,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Lưu ID đơn hàng vào Session (hoặc truyền qua URL)
         $_SESSION['new_order_id'] = $orderId;
-
-        header("Location: process_checkout.php");
-        exit;
+        header("Location: process_checkout.php");    
+    unset($_SESSION['shopping_cart']);
+        exit();
       } else {
         echo "Lỗi: " . $sql . "<br>" . $con->error;
       }
@@ -64,11 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 if (!isset($_SESSION['shopping_cart']) || count($_SESSION['shopping_cart']) == 0) {
-  // return;
   header("Location: ./cart.php");
+  exit();
   // header("Location: ../index.php");
 }
 $con->close();
+
+ob_end_flush();
 ?>
 
 
@@ -76,7 +79,7 @@ $con->close();
 
 
   <main class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pt-28 sm:pb-64  lg:max-w-7xl lg:px-8 dark:bg-gray-800">
-    <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mt-8 mb-16">
+    <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl mt-8 mb-16">
         Đặt hàng
       </h1>
    
@@ -93,14 +96,14 @@ $con->close();
       };
       ?>
       <div>
-        <div class="mb-10 border-b border-slate-200 pb-10">
-          <h2 class="text-lg font-medium text-slate-900">Thông tin giao hàng</h2>
+        <div class="mb-10 border-b border-slate-200 dark:!border-gray-500  pb-10">
+          <h2 class="text-lg font-medium text-slate-900 dark:text-slate-50">Thông tin giao hàng</h2>
           <!-- <h2 class="text-lg font-medium text-slate-900">Contact information</h2> -->
 
           <div class="mt-4">
             <label class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-50" for="contact-email"> Email </label>
             <div class="mt-1">
-              <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="email" id="contact-email" name="contact-email" autocomplete="email" />
+              <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="email" id="contact-email" name="contact-email" autocomplete="email" />
             </div>
           </div>
         </div>
@@ -111,40 +114,40 @@ $con->close();
             <div class="sm:col-span-2">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-name"> Họ tên </label>
               <div class="mt-1">
-                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" id="shipping-name" placeholder="injection" name="shipping-name" autocomplete="given-name" />
+                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" id="shipping-name" placeholder="injection" name="shipping-name" autocomplete="given-name" />
               </div>
             </div>
 
             <div class="sm:col-span-2">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-address-line-1"> Địa chỉ </label>
               <div class="mt-1">
-                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" placeholder="injection"  name="shipping-address" id="shipping-address" autocomplete="street-address" />
+                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" placeholder="injection"  name="shipping-address" id="shipping-address" autocomplete="street-address" />
               </div>
             </div>
 
             <div class="sm:col-span-2">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-phone"> Số điện thoại </label>
               <div class="mt-1">
-                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="tel" placeholder="injection"  name="shipping-phone" id="shipping-phone" />
+                <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="tel" placeholder="injection"  name="shipping-phone" id="shipping-phone" />
               </div>
             </div>
           </div>
         </div>
 
-        <div class="mt-10 border-t border-slate-200 pt-10">
-          <h2 class="text-lg font-medium text-slate-900">Phương thức thanh toán</h2>
+        <div class="mt-10 border-t border-slate-200 dark:!border-gray-500  pt-10">
+          <h2 class="text-lg font-medium text-slate-900 dark:text-slate-50">Phương thức thanh toán</h2>
 
           <fieldset class="mt-4">
 
             <div class="space-y-4">
-              <label class="relative block cursor-pointer rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between" :class="{'border-transparent ring-2 ring-sky-600': paymentMethod === 'cash_on_delivery', 'border-gray-300': paymentMethod !== 'cash_on_delivery'}">
+              <label class="relative block cursor-pointer rounded-lg border border-gray-300 dark:!border-gray-500 bg-gray-50/20 dark:bg-gray-600 px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between" :class="{'border-transparent ring-2 ring-sky-600': paymentMethod === 'cash_on_delivery', 'border-gray-300': paymentMethod !== 'cash_on_delivery'}">
                 <span class="flex items-center">
                   <span class="flex flex-col text-sm">
                     <div class="flex">
-                      <input type="radio" checked>
-                      <span class="ml-2 font-medium text-gray-900"> Thanh toán khi nhận hàng </span>
+                      <input type="radio" class=" border-2 border-blue-500 checked:bg-indigo-500"checked>
+                      <span class="ml-2 font-medium text-slate-900 dark:text-slate-50"> Thanh toán khi nhận hàng </span>
                     </div>
-                    <span class="text-gray-500">
+                    <span class="text-slate-500">
                       <span class="block sm:inline">  </span>
                     </span>
                   </span>
@@ -154,12 +157,12 @@ $con->close();
           </fieldset>
         </div>
 
-        <div class="mt-10 border-t border-slate-200 pt-10">
+        <div class="mt-10 border-t border-slate-200 dark:!border-gray-500  pt-10">
           <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
             <div class="sm:col-span-2">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="notes"> Ghi chú (không bắt buộc) </label>
               <div class="mt-1">
-                <textarea class="block w-full appearance-none rounded-md border border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" placeholder="injection"  name="order_notes" id="notes" placeholder="..."> </textarea>
+                <textarea class="block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" placeholder="injection"  name="order_notes" id="notes" placeholder="..."> </textarea>
               </div>
             </div>
           </div>
@@ -168,11 +171,11 @@ $con->close();
 
       <div class="mt-10 lg:mt-0">
         <div class="sticky top-4">
-          <h2 class="text-lg font-medium text-slate-900">Sản phẩm <?php echo '('.count($_SESSION['shopping_cart']).')' ?></h2>
+          <h2 class="text-lg font-medium text-slate-900 dark:text-slate-50">Sản phẩm <?php echo '('.count($_SESSION['shopping_cart']).')' ?></h2>
 
-          <div class="mt-4 rounded-lg border border-slate-200 bg-white shadow-sm">
+          <div class="mt-4 rounded-lg border border-slate-200 dark:!border-gray-500  bg-gray-50/20 shadow-sm">
 
-            <ul role="list" class="divide-y divide-gray-200 text-sm text-gray-900">
+            <ul role="list" class="divide-y divide-gray-200 text-sm text-gray-900 border-t-0">
       <?php
       if (isset($_SESSION['shopping_cart'])) {
         $total_price = 0;
@@ -185,19 +188,19 @@ $con->close();
           $i++;
           $total_price += ($product['product_price'] * $product['quantity']);
     $product_price_vnd = number_format($product['product_price'] / 1, 0, ',', '.') . ' đ';
-      echo '<li class="flex items-center space-x-4 px-4 py-6 sm:px-6">
-                <div class="relative flex flex-shrink-0 rounded-md border border-slate-200">
+      echo '<li class="flex items-center space-x-4 px-4 py-6 sm:px-6   border-slate-200 dark:!border-gray-500  ">
+                <div class="relative flex flex-shrink-0 rounded-md">
                   <img alt="' . $product['product_name'] . '" class="h-20 w-20 rounded-md" src="' . $product['product_image_link'] . '" />
                   <span class="absolute -right-2 -top-3 whitespace-nowrap rounded-full bg-slate-400 px-2 py-0.5 text-center text-xs font-medium tabular-nums leading-5 text-white ring-1 ring-inset ring-slate-400">' . $product['quantity'] . '</span>
                 </div>
                 <div class="ml-6 flex-auto space-y-1">
                   <h4 class="line-clamp-2">
-                    <a href="https://" class="font-medium text-slate-700 hover:text-slate-800"> ' . $product['product_name'] . ' </a>
+                    <a href="https://" class="font-medium text-slate-700 dark:text-slate-50 hover:text-slate-800"> ' . $product['product_name'] . ' </a>
                   </h4>
                   <ul class="space-x-2 divide-x divide-slate-200 text-sm text-slate-500">
                   </ul>
                 </div>
-                <p class="flex flex-col space-y-1 text-right font-medium">' . $product_price_vnd . '</p>
+                <p class="flex flex-col space-y-1 text-right font-medium dark:text-slate-50">' . $product_price_vnd . '</p>
               </li>';
             };
             $total_price_vnd = number_format($total_price / 1, 0, ',', '.') . ' đ';
@@ -206,29 +209,30 @@ $con->close();
 
             </ul>
 
-            <dl class="space-y-6 border-t border-slate-200 px-4 py-6 sm:px-6">
+            <dl class="space-y-6 border-t border-slate-200 dark:!border-gray-500  px-4 py-6 sm:px-6">
               <div class="flex items-center justify-between">
-                <dt class="text-sm font-medium">Giá trị đơn hàng</dt>
-                <dd class="text-sm font-medium text-slate-900"><?php echo $total_price_vnd?></dd>
+                <dt class="text-sm font-medium dark:text-slate-50">Giá trị đơn hàng</dt>
+                <dd class="text-sm font-medium text-slate-900 dark:text-slate-50"><?php echo $total_price_vnd?></dd>
               </div>
 
               <div class="flex items-center justify-between">
-                <dt class="text-sm font-medium">Phí vận chuyển</dt>
-                <dd class="text-sm font-medium text-slate-900">0</dd>
+                <dt class="text-sm font-medium dark:text-slate-50">Phí vận chuyển</dt>
+                <dd class="text-sm font-medium text-slate-900 dark:text-slate-50">0</dd>
               </div>
               <div class="flex items-center justify-between">
-                <dt class="text-sm font-medium">Thuế</dt>
-                <dd class="text-sm font-medium text-slate-900">0</dd>
+                <dt class="text-sm font-medium dark:text-slate-50">Thuế</dt>
+                <dd class="text-sm font-medium text-slate-900 dark:text-slate-50">0</dd>
               </div>
-              <div class="flex items-center justify-between border-t border-slate-200 pt-6">
-                <dt class="text-base font-medium">Tổng thanh toán</dt>
-                <dd class="text-base font-medium text-slate-900"><?php echo $total_price_vnd?></dd>
+              <div class="flex items-center justify-between border-t border-slate-200 dark:!border-gray-500  pt-6">
+                <dt class="text-base font-medium dark:text-slate-50">Tổng thanh toán</dt>
+                <dd class="text-base font-medium text-slate-900 dark:text-slate-50"><?php echo $total_price_vnd?></dd>
                 <input type="hidden" name="total_price" value="<?php echo $total_price ?>">
               </div>
             </dl>
 
-            <div class="border-t border-slate-200 px-4 py-6 sm:px-6">
-              <button type="submit" class="btn btn-primary btn-xl w-full bg-[#0d6efd]" style="background: #990B61; color:#fff; border-color: #000;">Đặt hàng</button>
+            <div class="border-t border-slate-200 dark:!border-gray-500  px-4 py-6 sm:px-6">
+              <button type="submit" class="btn btn-primary hover:opacity-80 dark:!bg-indigo-500 dark:hover:!bg-indigo-600 !border-none  btn-xl w-full" 
+              style="background: #990B61; color:#fff; border-color: #000;">Đặt hàng</button>
             </div>
           </div>
         </div>
