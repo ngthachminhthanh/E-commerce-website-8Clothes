@@ -128,6 +128,7 @@
 			</div>
 		</div>
 	</footer>
+    <?php include_once("./components/cartToast.php")?>
 </body>
 <script src='./JS/index.js'></script>
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("config.php");
-include_once 'header.php';
+include_once './components/header.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -237,5 +237,5 @@ $con->close();
   </main>
 
 <?php
-  include_once 'footer.php';
+  include_once './components/footer.php';
   ?>

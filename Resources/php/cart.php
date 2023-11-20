@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("config.php");
-include_once 'header.php';
+include_once './components/header.php';
 
 
 
@@ -183,5 +183,5 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
 </main>';
 }
 echo '';
-include_once 'footer.php';
+include_once './components/footer.php';
 $con->close();
