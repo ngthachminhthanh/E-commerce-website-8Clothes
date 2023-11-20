@@ -270,6 +270,7 @@ ob_end_flush();
     </form>
   </main>
 <script src="../JS/app.js"></script>
+<script src="../JS/tailwind.config.js"></script>
 <script>$(document).ready(addAddress())</script>
 <?php
   include_once './components/footer.php';

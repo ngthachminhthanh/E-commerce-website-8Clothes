@@ -179,7 +179,6 @@
 <script src='./JS/index.js'></script>
 
 
-<script>
-    
-</script>
+<script src="./JS/tailwind.config.js"></script>
+<script src="./JS/app.js"></script>
 </html>

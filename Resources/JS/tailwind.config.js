@@ -1,5 +1,4 @@
 
-
 tailwind.config = {
   content: ["./*.php"],
   darkMode: "class"

@@ -182,6 +182,9 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
               </div>
 </main>';
 }
+
 echo '';
 include_once './components/footer.php';
 $con->close();
+?>
+<script src="../JS/tailwind.config.js"></script>

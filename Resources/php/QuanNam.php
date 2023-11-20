@@ -151,8 +151,6 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
     xhr.send(data);
 }
 </script>
-</html>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function () {
         // Sự kiện click nút áo nữ
@@ -173,3 +171,7 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
         
     });
 </script>
+
+<script src="./JS/tailwind.config.js"></script>
+<script src="./JS/app.js"></script>    
+</html>
