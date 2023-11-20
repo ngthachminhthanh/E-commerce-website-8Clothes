@@ -8,7 +8,8 @@ include_once './components/header.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Lấy thông tin từ biểu mẫu
   $name = mysqli_real_escape_string($con, $_POST["shipping-name"]);
-  $address = mysqli_real_escape_string($con, $_POST["shipping-address"]);
+  // $address = mysqli_real_escape_string($con, $_POST["shipping-address"]) . ' - ' . $_POST["shipping-ward"] . $_POST["shipping-district"] . $_POST["shipping-city"];
+  $address = mysqli_real_escape_string($con, $_POST["shipping-address"]) . ' - ' . $_POST["shipping-ward-text"] . ', ' . $_POST["shipping-district-text"] . ', ' . $_POST["shipping-city-text"];
   $phone = mysqli_real_escape_string($con, $_POST["shipping-phone"]);
   $orderNotes = mysqli_real_escape_string($con, $_POST["order_notes"]);
   $total_price = mysqli_real_escape_string($con, $_POST["total_price"]);
@@ -110,22 +111,51 @@ ob_end_flush();
         <div>
           <!-- <h2 class="text-lg font-medium text-slate-900">Shipping information</h2> -->
 
-          <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-            <div class="sm:col-span-2">
+          <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
+            <div class="sm:col-span-3">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-name"> Họ tên </label>
               <div class="mt-1">
                 <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" id="shipping-name" placeholder="injection" name="shipping-name" autocomplete="given-name" />
               </div>
             </div>
 
-            <div class="sm:col-span-2">
+            <div class="sm:col-span-3">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-address-line-1"> Địa chỉ </label>
               <div class="mt-1">
                 <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="text" placeholder="injection"  name="shipping-address" id="shipping-address" autocomplete="street-address" />
               </div>
             </div>
+          
+<div>
+  <label class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-200" for="shipping-country"> Tỉnh thành </label>
+  <div class="mt-1">
+    <select class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" id="shipping-city" name="shipping-city" autocomplete="country-name" onchange="$('#shipping-city-text').val($(this).find('option:selected').text())">
+      <option value="" class="dark:text-slate-40 dark:bg-slate-800">Chọn tỉnh thành</option>
+    </select>
+  </div>
+</div> 
+<input type="hidden" name="shipping-city-text" id="shipping-city-text" value="" />
+<div>
+  <label class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-200" for="shipping-country"> Quận huyện </label>
+  <div class="mt-1">
+    <select class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" id="shipping-district" name="shipping-district" autocomplete="country-name" onchange="$('#shipping-district-text').val($(this).find('option:selected').text())">
+      <option value="" class="dark:text-slate-40 dark:bg-slate-800">Chọn quận huyện</option>
+    </select>
+  </div>
+</div> 
 
-            <div class="sm:col-span-2">
+<input type="hidden" name="shipping-district-text" id="shipping-district-text" value="" />
+<div>
+  <label class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-200" for="shipping-country"> Phường xã </label>
+  <div class="mt-1">
+    <select class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" id="shipping-ward" name="shipping-ward" autocomplete="country-name" onchange="$('#shipping-ward-text').val($(this).find('option:selected').text())">
+      <option value="" class="dark:text-slate-40 dark:bg-slate-800">Chọn phường xã</option>
+    </select>
+  </div>
+</div> 
+<input type="hidden" name="shipping-ward-text" id="shipping-ward-text" value="" />
+
+            <div class="sm:col-span-3">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-phone"> Số điện thoại </label>
               <div class="mt-1">
                 <input required class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" type="tel" placeholder="injection"  name="shipping-phone" id="shipping-phone" />
@@ -159,7 +189,7 @@ ob_end_flush();
 
         <div class="mt-10 border-t border-slate-200 dark:!border-gray-500  pt-10">
           <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-            <div class="sm:col-span-2">
+            <div class="sm:col-span-3">
               <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="notes"> Ghi chú (không bắt buộc) </label>
               <div class="mt-1">
                 <textarea class="block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm" placeholder="injection"  name="order_notes" id="notes" placeholder="..."> </textarea>
@@ -239,7 +269,8 @@ ob_end_flush();
       </div>
     </form>
   </main>
-
+<script src="../JS/app.js"></script>
+<script>$(document).ready(addAddress())</script>
 <?php
   include_once './components/footer.php';
   ?>
