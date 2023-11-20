@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <link rel="shortcut icon" href="./Image/title-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./Font/zhcn.ttf">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,11 +15,11 @@
         <div class="phanloai">
             <h2>PHÂN LOẠI SẢN PHẨM</h2>
             <div class="loai">
-                <p id="aonu"><a href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
-                <p id="aonam"><a href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
-                <p id="quanvaynu"><a href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
-                <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
-                <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
+                <p id="aonu"><a href="./php/AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
+                <p id="aonam"><a href="./php/AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
+                <p id="quanvaynu"><a href="./php/QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
+                <p id="quannam"><a href="./php/QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
+                <p id="phukien"><a href="./php/PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
             </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 </select>    
             </div>
             <?php
-require_once 'config.php';
+require_once './php/config.php';
 
 if (isset($_POST['category'])) {
     $category = $_POST['category'];

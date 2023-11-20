@@ -128,7 +128,7 @@
 			</div>
 		</div>
 	</footer>
-    <?php include_once("./components/cartToast.php")?>
+    <?php include_once("./php/components/cartToast.php")?>
 </body>
 <script src='./JS/index.js'></script>
 
@@ -161,7 +161,7 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
             var keyword = $("#input").val().trim();
             // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
             $.ajax({
-                url: "./php/filter.php", // Đường dẫn đến file xử lý tìm kiếm
+                url: "./filterindex.php", // Đường dẫn đến file xử lý tìm kiếm
                 method: "POST",
                 data: { category: keyword },
                 success: function (data) {
