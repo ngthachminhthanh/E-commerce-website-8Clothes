@@ -24,10 +24,11 @@
                 <img src="../logo.jpg" alt="logo">
             </a>
         </div>
-
         <div class="searchBar">
             <div class="searchIcon">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <button type="submit" id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
             <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
         </div>
@@ -151,3 +152,24 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
 }
 </script>
 </html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Sự kiện click nút áo nữ
+        $("#searchButton").click(function () {
+            // Lấy giá trị từ trường input
+            var keyword = $("#input").val().trim();
+            // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
+            $.ajax({
+                url: "./filter.php", // Đường dẫn đến file xử lý tìm kiếm
+                method: "POST",
+                data: { category: keyword },
+                success: function (data) {
+                    // Cập nhật nội dung trang với kết quả tìm kiếm
+                    $("#content").html(data);
+                }
+            });
+        });
+        
+    });
+</script>

@@ -15,11 +15,12 @@
         <div class="phanloai">
             <h2>PHÂN LOẠI SẢN PHẨM</h2>
             <div class="loai">
-                <p id="aonu">&nbsp;&nbsp;&nbsp;Áo nữ</p>
-                <p id="aonam">&nbsp;&nbsp;&nbsp;Áo nam</p> 
-                <p id="quanvaynu">&nbsp;&nbsp;&nbsp;Quần váy nữ</p>
-                <p id="quannam">&nbsp;&nbsp;&nbsp;Quần nam</p> 
-                <p id="phukien">&nbsp;&nbsp;&nbsp;Phụ kiện</p>
+                <p id="aonu"><a href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
+                <p id="aonam"><a href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
+                <p id="quanvaynu"><a href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
+                <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
+                <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
+            </div>
             </div>
         </div>
         <div class="products-container">
