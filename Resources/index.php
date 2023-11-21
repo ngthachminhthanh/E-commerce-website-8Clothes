@@ -4,9 +4,8 @@
 
     $sql = "SELECT * FROM `product`;";
     $all_product = $con->query($sql);
-    include_once '../Resources/php/components/header.php';
+    include_once './php/components/header.php';
 ?>
-</head>
 <body>
     <div id="content">
         <div class="phanloai">

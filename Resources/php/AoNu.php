@@ -5,7 +5,7 @@
     $sql = "SELECT * FROM `product`
     WHERE `Product category ID` = 0;";
     $all_product = $con->query($sql);
-    include_once'./components/header.php';
+    include_once("./components/header.php");
     
 ?>
 <body>
