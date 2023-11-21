@@ -4,7 +4,7 @@
 
     $sql = "SELECT * FROM `product`;";
     $all_product = $con->query($sql);
-    include_once './php/components/header.php';
+    include_once('./php/components/header.php');
 ?>
 <body>
     <div id="content">

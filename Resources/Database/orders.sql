@@ -14,8 +14,9 @@ CREATE TABLE orders (
   order_date DATE,
   payment_status VARCHAR(20),
   shipping_status VARCHAR(20),
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES customer(id)
 );
+
 
 CREATE TABLE order_items (
   id INT PRIMARY KEY AUTO_INCREMENT,
