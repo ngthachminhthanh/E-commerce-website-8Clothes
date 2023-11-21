@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="shortcut icon" href="./Image/title-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="../Image/title-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Online eStore</title>
 </head>
 <body>
 <header>
         <div id="header__logo">
-            <a href="index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
-                <img src="./logo.jpg" alt="logo">
+            <a href="../index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
+                <img src="../logo.jpg" alt="logo">
             </a>
         </div>
         <div class="sort">
@@ -24,14 +24,7 @@
                 </div> 
                 
             </div>
-        <div class="searchBar">
-            <div class="searchIcon">
-                <button type="submit" id="searchButton">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
-        </div>
+
 
         <ul id="header__nav">
             <?php 

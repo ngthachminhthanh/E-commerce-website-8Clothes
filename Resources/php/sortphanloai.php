@@ -2,22 +2,33 @@
 <div class="phanloai">
             <h2>PHÂN LOẠI</h2>
             <div class="loai">
-                <p id="aonu"><a href="./php/AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
-                <p id="aonam"><a href="./php/AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
-                <p id="quanvaynu"><a href="./php/QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
-                <p id="quannam"><a href="./php/QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
-                <p id="phukien"><a href="./php/PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
+                <p id="aonu"><a href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
+                <p id="aonam"><a href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
+                <p id="quanvaynu"><a href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
+                <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
+                <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
             </div>
         </div>
         <div class="products-container">
             <?php
 require_once 'config.php';
-
-if (isset($_POST['category'])) {
-    $category = $_POST['category'];
+if (isset($_POST['sortOption'])  && isset($_POST['loaisp'])) {
+    // Đã nhận cả hai đối số
+    $sortOption = $_POST['sortOption'];
+    $loaisp = $_POST['loaisp'];
+/*if (isset($_POST['sortOption'])) {
+    // Lấy giá trị đã chọn từ client
+    $sortOption = $_POST['sortOption'];
+*/
+    // Xử lý giá trị được chọn (ví dụ: sắp xếp dữ liệu)
+    if ($sortOption === 'highlow') {
+        $sql = "SELECT * FROM product WHERE  `Product category ID` = $loaisp ORDER BY price DESC";
+    } elseif ($sortOption === 'lowhigh') {
+        $sql = "SELECT * FROM product WHERE  `Product category ID` = $loaisp ORDER BY price ASC";
+    }
 
     // Xử lý điều kiện lọc và truy vấn sản phẩm từ cơ sở dữ liệu
-    $sql = "SELECT * FROM `product` WHERE (`Name` like '%$category%') or (`Description` like '%$category%')"; 
+
     $result = $con->query($sql);
 
     // Kiểm tra nếu có kết quả trả về
@@ -58,7 +69,6 @@ if (isset($_POST['category'])) {
         echo "Không tìm thấy sản phẩm.";
     }
 }
-$con->close();
 ?>
          </div>
 
