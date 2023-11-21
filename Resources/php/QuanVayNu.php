@@ -25,8 +25,8 @@ include_once("./components/header.php");
     <div class="products-container dark:!bg-slate-800">
         <div class="sort">
             <label for="" class="dark:text-gray-100">Sắp xếp</label>
-             <select name="sapxep" class="dark:text-slate-300  dark:bg-white/5 ">
-                <option class="dark:text-slate-40 dark:bg-slate-800" value=""></option>
+            <select name="sapxep" class="dark:text-slate-300  dark:bg-white/5 " onchange="sortPL(3, this.value)">
+                <option class="dark:text-slate-40 dark:bg-slate-800" value="">Mặc định</option>
                 <option class="dark:text-slate-40 dark:bg-slate-800" value="highlow">Từ cao đến thấp</option>
                 <option class="dark:text-slate-40 dark:bg-slate-800" value="lowhigh">Từ thấp đến cao</option>
             </select>

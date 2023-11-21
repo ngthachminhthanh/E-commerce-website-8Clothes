@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <div class="page-container relative min-h-screen dark:bg-gray-800">
+  <div class="flex page-container relative min-h-screen dark:bg-gray-800">
   <header class="dark:bg-gray-800 dark:shadow-none">
         <div id="header__logo" class="h-[100%] !flex items-center">
           
@@ -22,15 +22,31 @@
         <img src="./../logo3.png" class="box-shadow: 20px 3px 15px 13px #376796" alt="logo">
     </a>
         </div>
-
-        <form action="index.php" class="searchBar" method="">
+        <!-- <div class="sort w-full">
+                <div class="sortHigh">
+                    <button type="submit" id="sortHi">a-z</button>
+                </div>   
+                <div class="sortLow">
+                    <button type="submit" id="sortLo">z-a</button>
+                </div> 
+              </div> -->
+              
+        <!-- <form action="index.php" class="searchBar" method="">
             <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100"  type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
             <div class="searchIcon">
             <button type="submit" name="submit" id="searchButton">
                     <i class="fa-solid fa-magnifying-glass dark:!text-gray-100"></i>
                 </button>
             </div>
-        </form>
+        </form> -->
+        <div class="searchBar">
+            <div class="searchIcon">
+                <button type="submit" id="searchButton" onclick="search()">
+                    <i class="fa-solid fa-magnifying-glass dark:!text-gray-100"></i>
+                </button>
+            </div>
+            <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100" type="text" id="input" name="input" value="" placeholder="Nhập sản phẩm cần tìm...">
+        </div>
 
         <ul id="header__nav" class="!flex items-center">
             <?php 

@@ -1,4 +1,3 @@
-
 <footer class="footer absolute bottom-0 dark:bg-gray-800">
 	<div class="container row">
 		<div class="footer-col">
@@ -11,40 +10,31 @@
 		<div class="footer-col">
 			<h4>Theo dõi chúng tôi qua</h4>
 			<div class="social-links">
-					<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-					<a href="#"><i class="fa-brands fa-instagram"></i></a>
-					<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-				</div>
+				<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+				<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
 			</div>
 		</div>
-	</footer>
-	<?php
-    include_once("./components/cartToast.php");
-		?>
+	</div>
+</footer>
+<?php
+include_once("./components/cartToast.php");
+?>
 </div>
 </body>
 <script src='../JS/index.js'></script>
 <script src="../JS/tailwind.config.js"></script>
 <script src="../JS/app.js"></script>
 <script>
-    $(document).ready(function () {
-        // Sự kiện click nút áo nữ
-        $("#searchButton").click(function () {
-            // Lấy giá trị từ trường input
-            var keyword = $("#input").val().trim();
-            // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
-            $.ajax({
-                url: "./filter.php", // Đường dẫn đến file xử lý tìm kiếm
-                method: "POST",
-                data: { category: keyword },
-                success: function (data) {
-                    // Cập nhật nội dung trang với kết quả tìm kiếm
-                    $("#content").html(data);
-                }
-            });
-        });
-
-    });
+	$(document).ready(function () {
+		// $("#searchButton").click(function () {
+		$('.searchBar #input').on('keydown', function (e) {
+			if (e.key === 'Enter') {
+				search();
+			}
+		});
+	});
 </script>
+
 </html>

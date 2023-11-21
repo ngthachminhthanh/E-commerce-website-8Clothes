@@ -161,7 +161,7 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
 </div>
 </main>';
 } else {
-  echo '<main class="bg-gray-50/20 h-full dark:bg-gray-800">
+  echo '<main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:pt-28 sm:pb-48 lg:px-0 pb-10 dark:bg-gray-800">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
                       <div class="mb-6 mx-auto text-center">
               <svg class="mx-auto h-24 w-24 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
