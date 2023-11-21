@@ -26,6 +26,44 @@ header {
     background-color: #fff;
 }
 
+/*Sort*/
+Header .sort {
+    width: 500px;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    top: 70%;
+    left: 38.7%;
+    transform: translate(-50%, -50%);
+}
+Header .sortHigh {
+    /* Thêm kiểu dáng, màu sắc, kích thước và các thuộc tính khác theo mong muốn của bạn */
+    margin-left: 60px; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    padding: 10px; /* Kích thước độ lớn của nút */
+    border: none; /* Loại bỏ đường viền */
+    cursor: pointer; /* Biến con trỏ thành hình cần thiết khi di chuột qua nút */
+    display: inline-block;
+}
+Header .sortHigh:hover {
+    /* Kiểu dáng khi di chuột qua */
+    background-color: #2980b9;
+}
+.sortLow {
+    /* Thêm kiểu dáng, màu sắc, kích thước và các thuộc tính khác theo mong muốn của bạn */
+    margin-left: 5px; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    padding: 5px; /* Kích thước độ lớn của nút */
+    border: none; /* Loại bỏ đường viền */
+    cursor: pointer; /* Biến con trỏ thành hình cần thiết khi di chuột qua nút */
+    display: inline-block;
+}
+.sortLow:hover {
+    /* Kiểu dáng khi di chuột qua */
+    background-color: #2980b9;
+}
+
 /*logo*/
 #header__logo, #header__nav{
     display: inline-block;
@@ -49,7 +87,7 @@ header .searchBar {
     display: inline-block;
     position: absolute;
     z-index: 2;
-    top: 50%;
+    top: 35%;
     left: 40%;
     transform: translate(-50%, -50%);
 }
@@ -161,7 +199,6 @@ header #header__nav li a:hover:after {
     text-align: start;
 }
 
-/*Sort*/
 #content .products-container .sort{
     margin-left: 20px;
     margin-top: 30px;

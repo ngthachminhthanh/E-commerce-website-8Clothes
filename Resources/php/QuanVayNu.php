@@ -2,10 +2,9 @@
     session_start();
     require_once './config.php';
 
-    $sql = "SELECT * FROM `product`
-    WHERE `Product category ID` = 3;";
+    $sql = "SELECT * FROM `product` WHERE `Product category ID` = 3;";
     $all_product = $con->query($sql);
-    include_once './components/header.php';  
+    include_once './components/headerphanloai.php';
 ?>
 <body>
     <div id="content">
@@ -14,20 +13,13 @@
             <div class="loai">
                 <p id="aonu"><a href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
                 <p id="aonam"><a href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
-                <p id="quanvaynu"><a href="./QuanVayNu.php" style="color: #990B61;">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
+                <p id="quanvaynu"><a href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
                 <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
                 <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
             </div>
         </div>
-        <div class="products-container">
-            <div class="sort">
-                <label for="">Sắp xếp</label>
-                <select name="sapxep">
-                    <option value=""></option>
-                    <option value="highlow">Từ cao đến thấp</option>
-                    <option value="lowhigh">Từ thấp đến cao</option>
-                </select>    
-            </div>
+        <div class="products-container"  id="phan">
+            
             <?php
             while($row = mysqli_fetch_assoc($all_product)){
             ?>
@@ -61,10 +53,31 @@
 
         </div>
     </div>
-    <?php include_once("./components/footer.php")?>
+    <footer class="footer">
+		<div class="container row">
+			<div class="footer-col">
+				<h4>Liên hệ với chúng tôi</h4>
+				<ul>
+					<li><a href="#">Số điện thoại +84-XXX-XXX-XXX</a></li>
+					<li><a href="#">Địa chỉ TPHCM</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Theo dõi chúng tôi qua</h4>
+				<div class="social-links">
+					<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+					<a href="#"><i class="fa-brands fa-instagram"></i></a>
+					<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+    <?php include_once("./components/cartToast.php")?>
 </body>
 <script src='../JS/index.js'></script>
-
+<script src="../JS/tailwind.config.js"></script>
+<script src="../JS/app.js"></script>
 <script>
 function addToCart(product_id, product_name, product_image_link, product_price) {
     var xhr = new XMLHttpRequest();
@@ -72,7 +85,7 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
                "&product_name=" + product_name +
                "&product_image_link=" + product_image_link +
                "&product_price=" + product_price;
-    xhr.open("POST", "./services/add_to_cart.php", true);
+    xhr.open("POST", "./php/services/add_to_cart.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function() {
@@ -84,27 +97,40 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
     xhr.send(data);
 }
 </script>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function () {
-        // Sự kiện click nút áo nữ
-        $("#searchButton").click(function () {
-            // Lấy giá trị từ trường input
-            var keyword = $("#input").val().trim();
-            // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
+        // Sự kiện thay đổi giá trị trong dropdown
+        $("#sortHi").click(function () {
+            // Lấy giá trị đã chọn
+            var selectedValue = "highlow";
+            var loaisp = 3;
+            // Gửi yêu cầu AJAX để lấy dữ liệu được sắp xếp
             $.ajax({
-                url: "./filter.php", // Đường dẫn đến file xử lý tìm kiếm
+                url: "./sortphanloai.php", // Đường dẫn đến file xử lý sắp xếp
                 method: "POST",
-                data: { category: keyword },
+                data: { sortOption: selectedValue, loaisp: loaisp },
                 success: function (data) {
-                    // Cập nhật nội dung trang với kết quả tìm kiếm
+                    // Cập nhật nội dung trang với kết quả sắp xếp
                     $("#content").html(data);
                 }
             });
         });
-        
+        $("#sortLo").click(function () {
+            // Lấy giá trị đã chọn
+            var selectedValue = "lowhigh";
+            var loaisp = 3;
+            // Gửi yêu cầu AJAX để lấy dữ liệu được sắp xếp
+            $.ajax({
+                url: "./sortphanloai.php", // Đường dẫn đến file xử lý sắp xếp
+                method: "POST",
+                data: { sortOption: selectedValue, loaisp: loaisp },
+                success: function (data) {
+                    // Cập nhật nội dung trang với kết quả sắp xếp
+                    $("#content").html(data);
+                }
+            });
+        });
     });
 </script>
-
-<script src="./JS/tailwind.config.js"></script>
-<script src="./JS/app.js"></script>    
-</html>
