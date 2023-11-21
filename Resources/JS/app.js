@@ -12,7 +12,7 @@ function showCartToast(product_name) {
 function addToCart(product_id, product_name, product_image_link, product_price) {
   $.ajax({
     type: "POST",
-    url: "./php/services/add_to_cart.php",
+    url: "./services/add_to_cart.php",
     data: {
       product_id: product_id,
       product_name: product_name,
@@ -82,5 +82,73 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
       });
     }
   }
+
+
+  // document ready jquery
+  $(document).ready(function () {
+    var themeToggleDarkIcon = $(
+      "#theme-toggle-dark-icon"
+    );
+    var themeToggleLightIcon = $(
+      "#theme-toggle-light-icon"
+    );
+
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      themeToggleLightIcon.removeClass("hidden");
+    } else {
+      themeToggleDarkIcon.removeClass("hidden");
+    }
+
+    var themeToggleBtn = $("#theme-toggle");
+
+    themeToggleBtn.on("click", function () {
+      themeToggleDarkIcon.toggleClass("hidden");
+      themeToggleLightIcon.toggleClass("hidden");
+
+      if (localStorage.getItem("color-theme")) {
+        if (localStorage.getItem("color-theme") === "light") {
+          $("html").addClass("dark");
+          localStorage.setItem("color-theme", "dark");
+        } else {
+          $("html").removeClass("dark");
+          localStorage.setItem("color-theme", "light");
+        }
+
+      } else {
+        // if ($("html").classList.contains("dark")) {
+        if ($("html").hasClass("dark")) {
+          $("html").removeClass("dark");
+          localStorage.setItem("color-theme", "light");
+        } else {
+          $("html").addClass("dark");
+          localStorage.setItem("color-theme", "dark");
+        }
+      }
+    });
+
+
+
+
+    $("#logOutBtn").on("click", function() {
+      $.ajax({
+          type: "GET",
+          url: "./services/logout.php",
+          dataType: "json",
+          success: function(response) {
+              if (response.success) {
+                  console.log("Đăng xuất thành công");
+                  location.reload();
+              }
+          },
+          error: function() {
+              console.log("Có lỗi xảy ra khi gửi yêu cầu đăng xuất.");
+          }
+      });
+  });
+  });
   
   

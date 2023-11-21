@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
       return $item['product_id'] !== $product_id;
     });
   }
-};
+}
+;
 
 echo '<script>
 function updateCartItemQuantity(productId, quantity) {
@@ -67,7 +68,7 @@ function updateCartItemQuantity(productId, quantity) {
 </script>';
 
 if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) {
-echo '
+  echo '
     <main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:pt-28 sm:pb-48 lg:px-0 pb-10 dark:bg-gray-800">
       <h1 class="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
         Giỏ hàng
@@ -75,10 +76,10 @@ echo '
     
       <div class="mt-16">
         <section >';
-echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-slate-200 dark:!border-gray-500 ">';
+  echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-slate-200 dark:!border-gray-500 ">';
 
 
-// if (isset($_SESSION['shopping_cart'])) {
+  // if (isset($_SESSION['shopping_cart'])) {
   $total_price = 0;
   foreach ($_SESSION['shopping_cart'] as $productID => $product) {
     $total_price += ($product['product_price'] * $product['quantity']);
@@ -118,7 +119,8 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
         </div>
       </div>
     </li>';
-  };
+  }
+  ;
   $total_price_vnd = number_format($total_price / 1, 0, ',', '.') . ' đ';
   echo '</section>
   <section class="mt-10">
@@ -130,7 +132,7 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
           Tổng cộng
           </dt>
           <dd id="total_price_vnd" class="ml-4 text-base font-medium text-slate-900 dark:text-slate-50">
-          ' . $total_price_vnd. '
+          ' . $total_price_vnd . '
           </dd>
         </div>
       </dl>
@@ -141,15 +143,15 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
 
     <div class="mt-10">
       <a href="checkout.php" class="btn btn-primary hover:opacity-80 dark:!bg-indigo-500 dark:hover:!bg-indigo-600 !border-none btn-xl w-full" 
-      '.(/**/ NULL).'style="background: #990B61; color:#fff; border-color: #000;">
+      ' . ( /**/NULL) . 'style="background: #990B61; color:#fff; border-color: #000;">
         Mua hàng
       </a>
     </div>
 
     <div class="mt-6 text-center text-sm ">
       <p class="dark:text-slate-500">
-        <a href="../index.php" class="btn btn-link dark:!text-indigo-400"
-        '.(/**/ NULL).'style="color: #990B61;">
+        <a href="./index.php" class="btn btn-link dark:!text-indigo-400"
+        ' . ( /**/NULL) . 'style="color: #990B61;">
           Hoặc tiếp tục mua sắm
           <span aria-hidden="true"> →</span>
         </a>
@@ -173,8 +175,8 @@ echo '<ul role="list" class="divide-y divide-slate-200 border-b border-t border-
               </p>
 
               <div class="mt-6">
-                  <a href="../index.php" class="btn btn-primary hover:opacity-80  dark:!bg-indigo-500 dark:hover:!bg-indigo-600  !border-none" 
-                  '.(/**/ NULL).'style="background: #990B61; color:#fff; border-color: #000;">
+                  <a href="./index.php" class="btn btn-primary hover:opacity-80  dark:!bg-indigo-500 dark:hover:!bg-indigo-600  !border-none" 
+                  ' . ( /**/NULL) . 'style="background: #990B61; color:#fff; border-color: #000;">
                       Tiếp tục mua sắm
                   </a>
               </div>
@@ -187,4 +189,5 @@ echo '';
 include_once './components/footer.php';
 $con->close();
 ?>
-<script src="../JS/tailwind.config.js"></script>
+<!-- <script src="../JS/tailwind.config.js"></script>
+<script src="../JS/app.js"></script> -->
