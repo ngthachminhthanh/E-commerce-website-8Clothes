@@ -85,7 +85,7 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
                "&product_name=" + product_name +
                "&product_image_link=" + product_image_link +
                "&product_price=" + product_price;
-    xhr.open("POST", "./php/services/add_to_cart.php", true);
+    xhr.open("POST", "./services/add_to_cart.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function() {
