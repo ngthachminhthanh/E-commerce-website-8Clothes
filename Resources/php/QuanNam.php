@@ -5,57 +5,9 @@
     $sql = "SELECT * FROM `product`
     WHERE `Product category ID` = 4;";
     $all_product = $con->query($sql);
+    include_once './components/header.php';
     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="shortcut icon" href="../Image/title-icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Online eStore</title>
-</head>
-<body>
-<header>
-        <div id="header__logo">
-            <a href="../index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
-                <img src="../logo.jpg" alt="logo">
-            </a>
-        </div>
-        <div class="searchBar">
-            <div class="searchIcon">
-                <button type="submit" id="searchButton">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
-        </div>
-
-        <ul id="header__nav">
-            <?php 
-                if(isset($_SESSION['username'])){
-                    echo '<i class="fa-regular fa-user"></i>';
-                    echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
-                    session_destroy();
-                }
-            ?>
-            
-            <li><a href="./cart.php">GIỎ HÀNG</a></li>
-            
-            <?php
-                if(isset($_SESSION['valid'])){
-                    echo '<li><a href="../index.php">ĐĂNG XUẤT</a></li>';
-                }
-                else {
-                    echo '<li><a href="./login.php">ĐĂNG NHẬP</a></li>';
-                }
-            ?>
-
-        </ul>
-    </header>
-
     <div id="content">
         <div class="phanloai">
             <h2>PHÂN LOẠI</h2>
@@ -63,7 +15,7 @@
                 <p id="aonu"><a href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
                 <p id="aonam"><a href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p> 
                 <p id="quanvaynu"><a href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a></p>
-                <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
+                <p id="quannam"><a href="./QuanNam.php" style="color: #990B61;">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
                 <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
             </div>
         </div>
@@ -109,27 +61,7 @@
 
         </div>
     </div>
-    <footer class="footer">
-		<div class="container row">
-			<div class="footer-col">
-				<h4>Liên hệ với chúng tôi</h4>
-				<ul>
-					<li><a href="#">Số điện thoại +84-XXX-XXX-XXX</a></li>
-					<li><a href="#">Địa chỉ TPHCM</a></li>
-				</ul>
-			</div>
-			<div class="footer-col">
-				<h4>Theo dõi chúng tôi qua</h4>
-				<div class="social-links">
-					<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-					<a href="#"><i class="fa-brands fa-instagram"></i></a>
-					<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-				</div>
-			</div>
-		</div>
-	</footer>
-</body>
+    <?php include_once("./components/footer.php")?>
 <script src='../JS/index.js'></script>
 
 <script>
