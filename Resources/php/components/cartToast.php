@@ -4,4 +4,4 @@
         <strong class="me-auto">Thông Báo</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">1</div>
+<div class="toast-body">1</div>
