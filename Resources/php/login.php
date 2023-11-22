@@ -15,9 +15,9 @@ session_start();
 <body>
     <div class="container">
         <div class="box form-box">
-            <?php 
+            <?php
             include("config.php");
-            if(isset($_POST['submit'])){
+            if (isset($_POST['submit'])) {
                 $email = mysqli_real_escape_string($con, $_POST['email']);
                 $password = mysqli_real_escape_string($con, $_POST['password']);
                 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -30,18 +30,18 @@ session_start();
                     $_SESSION['username'] = $row['Username'];
                     $_SESSION['age'] = $row['Age'];
                     $_SESSION['id'] = $row['Id'];
-                    header("Location: ../index.php");
+                    header("Location: ./index.php");
                     exit();
                 } else {
-                    echo    "<div class='message'>
+                    echo "<div class='message'>
                                     <p>Sai tài khoản hoặc mật khẩu!</p>
                                 </div> <br>";
-                    echo    "<a href='login.php'><button class='btn'>Quay lại</button>";
+                    echo "<a href='login.php'><button class='btn'>Quay lại</button>";
                 }
             } else {
 
 
-            ?>
+                ?>
                 <header>Đăng nhập</header>
                 <form action="" method="post">
                     <div class="field input">
@@ -61,8 +61,9 @@ session_start();
                         Chưa có tài khoản? <a href="register.php">Đăng ký ngay</a>
                     </div>
                 </form>
-        </div>
-    <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 </body>
+
 </html>

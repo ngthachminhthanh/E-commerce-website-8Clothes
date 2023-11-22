@@ -31,11 +31,11 @@ if (isset($_SESSION['new_order_id'])) {
         $orderDetailsQuery = "SELECT * FROM order_details WHERE order_id = '$orderId'";
         $orderDetailsResult = $con->query($orderDetailsQuery);
         $OrDetail = $orderDetailsResult->fetch_assoc();
-        
-?>
-          
-            <?php
-            echo '<main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 sm:pb-60 lg:px-8">
+
+        ?>
+
+        <?php
+        echo '<main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 sm:pb-60 lg:px-8">
 <div class="max-w-3xl">
     <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
         Cảm ơn bạn đã đặt hàng!
@@ -68,9 +68,9 @@ if (isset($_SESSION['new_order_id'])) {
     <ul role="list" class="divide-y divide-slate-200 border-b border-slate-200 dark:!border-gray-500 ">
                                 
                   ';
-            while ($item = $orderItemsResult->fetch_assoc()) {
-                $total_product_price_vnd = number_format(($item['quantity'] * $item['price']) / 1, 0, ',', '.') . ' đ';
-                echo '    <li class="py-4 sm:py-6">
+        while ($item = $orderItemsResult->fetch_assoc()) {
+            $total_product_price_vnd = number_format(($item['quantity'] * $item['price']) / 1, 0, ',', '.') . ' đ';
+            echo '    <li class="py-4 sm:py-6">
                 <div class="flex items-center sm:items-stretch">
                     <div class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-slate-200 dark:!border-gray-500  sm:h-40 sm:w-40">
                                                                 <img alt=" ' . $item['Name'] . '" class="h-full w-full object-cover object-center" src=" ' . $item['Image'] . '">
@@ -110,8 +110,9 @@ if (isset($_SESSION['new_order_id'])) {
                     </div>
                 </div>
             </li>';
-            };
-            echo '</ul>
+        }
+        ;
+        echo '</ul>
 
     <div class="sm:ml-40 sm:pl-6">
         <dl class="grid grid-cols-1 gap-x-6 py-10 text-sm">
@@ -183,4 +184,5 @@ if (isset($_SESSION['new_order_id'])) {
 // ';
 require_once('./components/footer.php');
 ?>
-<script src="../JS/tailwind.config.js"></script>
+<!-- <script src="../JS/tailwind.config.js"></script>
+<script src="../JS/app.js"></script> -->
