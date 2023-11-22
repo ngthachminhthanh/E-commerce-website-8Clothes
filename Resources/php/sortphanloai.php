@@ -27,6 +27,7 @@ if (isset($_POST['sortOption'])  && isset($_POST['loaisp'])) {
         $sql = "SELECT * FROM product WHERE  `Product category ID` = $loaisp ORDER BY price ASC";
     }
 
+<<<<<<< HEAD
     // Xử lý điều kiện lọc và truy vấn sản phẩm từ cơ sở dữ liệu
 
     $result = $con->query($sql);
@@ -76,18 +77,34 @@ if (isset($_POST['sortOption'])  && isset($_POST['loaisp'])) {
     function showProducts($product) {
         foreach ($product as $row) {
             echo '
+=======
+<?php
+function showProducts($product)
+{
+    foreach ($product as $row) {
+        echo '
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
             <div class="product">
                 <table id="myTable">
                     <tr>
                         <td>
                             <div class="product--hoverEffect">
+<<<<<<< HEAD
                                 <img class="product-img" src="'.$row["Image"].'" alt="test">
+=======
+                                <img class="product-img" src="' . $row["Image"] . '" alt="test">
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
                             </div>
                         </td>
                         <td>
                             <div class="product-description">
+<<<<<<< HEAD
                                 <span>'.$row["Name"].'</span> 
                                 <h5>'.$row["Description"].'</h5>
+=======
+                                <span>' . $row["Name"] . '</span> 
+                                <h5>' . $row["Description"] . '</h5>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
                                 <div class="star">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -95,13 +112,21 @@ if (isset($_POST['sortOption'])  && isset($_POST['loaisp'])) {
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
+<<<<<<< HEAD
                                 <h4>'.$row["Price"].' VND</h4>
+=======
+                                <h4>' . $row["Price"] . ' VND</h4>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
                             </div>
                             <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
                         </td>
                     </tr>
                 </table>
             </div>';
+<<<<<<< HEAD
         }
+=======
+    }
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
 }
 ?>

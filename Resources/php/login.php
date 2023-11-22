@@ -41,7 +41,11 @@ session_start();
             } else {
 
 
+<<<<<<< HEAD
             ?>
+=======
+                ?>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
                 <header>Đăng nhập</header>
                 <form action="" method="post">
                     <div class="field input">

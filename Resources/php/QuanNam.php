@@ -1,10 +1,21 @@
 <?php
+<<<<<<< HEAD
     session_start();
     require_once './config.php';
 
     $sql = "SELECT * FROM `product` WHERE `Product category ID` = 4;";
     $all_product = $con->query($sql);
     include_once './components/headerphanloai.php';
+=======
+session_start();
+require_once './config.php';
+
+$sql = "SELECT * FROM `product`
+    WHERE `Product category ID` = 4;";
+$all_product = $con->query($sql);
+
+include_once("./components/header.php");
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
 ?>
 <body>
     <div id="content">

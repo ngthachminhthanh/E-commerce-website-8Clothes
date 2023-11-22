@@ -1,10 +1,21 @@
 <?php
+<<<<<<< HEAD
     session_start();
     require_once './config.php';
 
     $sql = "SELECT * FROM `product` WHERE `Product category ID` = 2;";
     $all_product = $con->query($sql);
     include_once './components/headerphanloai.php';
+=======
+session_start();
+require_once './config.php';
+
+$sql = "SELECT * FROM `product`
+    WHERE `Product category ID` = 2;";
+$all_product = $con->query($sql);
+
+include_once("./components/header.php");
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
 ?>
 <body>
     <div id="content">
@@ -53,6 +64,7 @@
 
         </div>
     </div>
+<<<<<<< HEAD
     <footer class="footer">
 		<div class="container row">
 			<div class="footer-col">
@@ -134,3 +146,11 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
         });
     });
 </script>
+=======
+</div>
+
+<?php
+// include_once("./components/cartToast.php");
+include_once("./components/footer.php");
+?>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)

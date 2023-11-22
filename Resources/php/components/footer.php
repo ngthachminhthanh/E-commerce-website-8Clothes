@@ -30,4 +30,29 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</footer>
+=======
+	</div>
+</footer>
+<?php
+include_once("./components/cartToast.php");
+?>
+</div>
+</body>
+<script src='../JS/index.js'></script>
+<script src="../JS/tailwind.config.js"></script>
+<script src="../JS/app.js"></script>
+<script>
+	$(document).ready(function () {
+		// $("#searchButton").click(function () {
+		$('.searchBar #input').on('keydown', function (e) {
+			if (e.key === 'Enter') {
+				search();
+			}
+		});
+	});
+</script>
+
+</html>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)

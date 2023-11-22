@@ -9,6 +9,7 @@
     <title>Online eStore</title>
 </head>
 <body>
+<<<<<<< HEAD
 <header>
         <div id="header__logo">
             <a href="index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
@@ -16,6 +17,20 @@
             </a>
         </div>
         <div class="sort">
+=======
+
+  <div class="flex page-container relative min-h-screen dark:bg-gray-800">
+  <header class="dark:bg-gray-800 dark:shadow-none">
+        <div id="header__logo" class="h-[100%] !flex items-center">
+          
+    <div id="shadow"></div>
+    <a href="index.php">
+
+        <img src="./../logo3.png" class="box-shadow: 20px 3px 15px 13px #376796" alt="logo">
+    </a>
+        </div>
+        <!-- <div class="sort w-full">
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
                 <div class="sortHigh">
                     <button type="submit" id="sortHi">Xếp theo giá cao đến thấp</button>
                 </div>   
@@ -30,14 +45,29 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
+<<<<<<< HEAD
             <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
         </div>
 
         <ul id="header__nav">
+=======
+        </form> -->
+        <div class="searchBar">
+            <div class="searchIcon">
+                <button type="submit" id="searchButton" onclick="search()">
+                    <i class="fa-solid fa-magnifying-glass dark:!text-gray-100"></i>
+                </button>
+            </div>
+            <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100" type="text" id="input" name="input" value="" placeholder="Nhập sản phẩm cần tìm...">
+        </div>
+
+        <ul id="header__nav" class="!flex items-center">
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
             <?php 
                 if(isset($_SESSION['username'])){
                     echo '<i class="fa-regular fa-user"></i>';
                     echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
+<<<<<<< HEAD
                     session_destroy();
                 }
             ?>
@@ -84,6 +114,20 @@
                 else {
                     echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 "  href="./login.php">ĐĂNG NHẬP</a></li>';
                 }?>*/
+=======
+                    // session_destroy();
+                }?>
+            
+            <li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 " href="cart.php">GIỎ HÀNG</a></li>
+             <!-- href="index.php" -->
+            <?php
+                if(isset($_SESSION['valid'])){
+                    echo '<li><a id="logOutBtn" class="dark:!text-gray-100 dark:hover:!bg-indigo-600" href="#">ĐĂNG XUẤT</a></li>';
+                }
+                else {
+                    echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 "  href="./login.php">ĐĂNG NHẬP</a></li>';
+                }?>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
           <button
             id="theme-toggle"
             type="button"
@@ -117,6 +161,7 @@
         </ul>
     </header>
     <script>
+<<<<<<< HEAD
        var themeToggleDarkIcon = $(
         "#theme-toggle-dark-icon"
       );
@@ -160,3 +205,7 @@
         }
       });
       </script>-->
+=======
+ 
+      </script>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)

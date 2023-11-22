@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     session_start();
     require_once './config.php';
 
@@ -17,6 +18,29 @@
                 <p id="quannam"><a href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p> 
                 <p id="phukien"><a href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
             </div>
+=======
+session_start();
+require_once './config.php';
+
+$sql = "SELECT * FROM `product`
+    WHERE `Product category ID` = 1;";
+$all_product = $con->query($sql);
+
+include_once("./components/header.php");
+?>
+
+
+<div id="content">
+    <div class="phanloai">
+        <h2 class="dark:text-gray-100">Phân loại</h2>
+        <div class="loai">
+            <p id="aonu"><a class="dark:!text-gray-100" href="./AoNu.php">&nbsp;&nbsp;&nbsp;Áo nữ</a></p>
+            <p id="aonam"><a class="dark:!text-gray-100" href="./AoNam.php">&nbsp;&nbsp;&nbsp;Áo nam</a></p>
+            <p id="quanvaynu"><a class="dark:!text-gray-100" href="./QuanVayNu.php">&nbsp;&nbsp;&nbsp;Quần váy nữ</a>
+            </p>
+            <p id="quannam"><a class="dark:!text-gray-100" href="./QuanNam.php">&nbsp;&nbsp;&nbsp;Quần nam</a></p>
+            <p id="phukien"><a class="dark:!text-gray-100" href="./PhuKien.php">&nbsp;&nbsp;&nbsp;Phụ kiện</a></p>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
         </div>
         <div class="products-container"  id="phan">
             
@@ -49,7 +73,14 @@
                     </tr>
                 </table>
             </div>
+<<<<<<< HEAD
             <?php }?>
+=======
+        <?php } ?>
+
+    </div>
+</div>
+>>>>>>> parent of a0113a0 (Điều chỉnh_Tiên Lê)
 
         </div>
     </div>
