@@ -62,36 +62,3 @@ $con->close();
 ?>
          </div>
 
-<?php
-    function showProducts($product) {
-        foreach ($product as $row) {
-            echo '
-            <div class="product">
-                <table id="myTable">
-                    <tr>
-                        <td>
-                            <div class="product--hoverEffect">
-                                <img class="product-img" src="'.$row["Image"].'" alt="test">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="product-description">
-                                <span>'.$row["Name"].'</span> 
-                                <h5>'.$row["Description"].'</h5>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <h4>'.$row["Price"].' VND</h4>
-                            </div>
-                            <a href="#" class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                        </td>
-                    </tr>
-                </table>
-            </div>';
-        }
-}
-?>

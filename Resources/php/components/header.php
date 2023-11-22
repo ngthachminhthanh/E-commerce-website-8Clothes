@@ -1,91 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Resources/CSS/style.css">
-  <link rel="shortcut icon" href="../Image/title-icon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./Font/tahoma.ttf">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <?php  include_once("dependencies.php")?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="../logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <?php include_once("dependencies.php")?>
   <title>Online eStore</title>
 </head>
 <body>
-<header>
-        <div id="header__logo">
-            <a href="index.php"> <!-- Đặt liên kết đến trang chủ ở đây -->
-                <img src="./logo.jpg" alt="logo">
-            </a>
+
+  <div class="flex page-container relative min-h-screen dark:bg-gray-800">
+  <header class="dark:bg-gray-800 dark:shadow-none">
+        <div id="header__logo" class="h-[100%] !flex items-center">
+          
+    <div id="shadow"></div>
+    <a href="index.php">
+
+        <img src="./../logo3.png" class="box-shadow: 20px 3px 15px 13px #376796" alt="logo">
+    </a>
         </div>
-        <div class="sort">
+        <!-- <div class="sort w-full">
                 <div class="sortHigh">
-                    <button type="submit" id="sortHi">Xếp theo giá cao đến thấp</button>
+                    <button type="submit" id="sortHi">a-z</button>
                 </div>   
                 <div class="sortLow">
-                    <button type="submit" id="sortLo">Xếp theo giá thấp đến cao</button>
+                    <button type="submit" id="sortLo">z-a</button>
                 </div> 
-                
-            </div>
-        <div class="searchBar">
+              </div> -->
+              
+        <!-- <form action="index.php" class="searchBar" method="">
+            <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100"  type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
             <div class="searchIcon">
-                <button type="submit" id="searchButton">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <button type="submit" name="submit" id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass dark:!text-gray-100"></i>
                 </button>
             </div>
-            <input type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
+        </form> -->
+        <div class="searchBar">
+            <div class="searchIcon">
+                <button type="submit" id="searchButton" onclick="search()">
+                    <i class="fa-solid fa-magnifying-glass dark:!text-gray-100"></i>
+                </button>
+            </div>
+            <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100" type="text" id="input" name="input" value="" placeholder="Nhập sản phẩm cần tìm...">
         </div>
 
-        <ul id="header__nav">
+        <ul id="header__nav" class="!flex items-center">
             <?php 
                 if(isset($_SESSION['username'])){
                     echo '<i class="fa-regular fa-user"></i>';
                     echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
-                    session_destroy();
-                }
-            ?>
-            
-            <li><a href="php/cart.php">GIỎ HÀNG</a></li>
-            
-            <?php
-                if(isset($_SESSION['valid'])){
-                    echo '<li><a href="index.php">ĐĂNG XUẤT</a></li>';
-                }
-                else {
-                    echo '<li><a href="./php/login.php">ĐĂNG NHẬP</a></li>';
-                }
-            ?>
-
-        </ul>
-    </header>
-  <!--<div class="page-container relative min-h-screen dark:bg-gray-800">
-  <header class="dark:bg-gray-800 dark:shadow-none">
-        <div id="header__logo">
-            <img src="./Image/logo_shopping.png" alt="logo">
-        </div>
-
-        <div class="searchBar">
-            <div class="searchIcon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100" type="text" id="input" name="input" placeholder="Nhập sản phẩm cần tìm...">
-        </div>
-
-        <ul id="header__nav" class="!flex items-center">
-            /*<?php 
-                if(isset($_SESSION['username'])){
-                    echo '<i class="fa-regular fa-user"></i>';
-                    echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
-                    session_destroy();
+                    // session_destroy();
                 }?>
             
             <li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 " href="cart.php">GIỎ HÀNG</a></li>
+             <!-- href="index.php" -->
             <?php
                 if(isset($_SESSION['valid'])){
-                    echo '<li><a class="light:!text-gray-100 dark:hover:!bg-indigo-600 " href="index.php">ĐĂNG XUẤT</a></li>';
+                    echo '<li><a id="logOutBtn" class="dark:!text-gray-100 dark:hover:!bg-indigo-600" href="#">ĐĂNG XUẤT</a></li>';
                 }
                 else {
                     echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 "  href="./login.php">ĐĂNG NHẬP</a></li>';
-                }?>*/
+                }?>
           <button
             id="theme-toggle"
             type="button"
@@ -119,46 +98,5 @@
         </ul>
     </header>
     <script>
-       var themeToggleDarkIcon = $(
-        "#theme-toggle-dark-icon"
-      );
-      var themeToggleLightIcon = $(
-        "#theme-toggle-light-icon"
-      );
-
-      if (
-        localStorage.getItem("color-theme") === "light" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: light)").matches)
-      ) {
-        themeToggleLightIcon.removeClass("hidden");
-      } else {
-        themeToggleDarkIcon.removeClass("hidden");
-      }
-
-      var themeToggleBtn = $("#theme-toggle");
-
-      themeToggleBtn.on("click", function () {
-        themeToggleDarkIcon.toggleClass("hidden");
-        themeToggleLightIcon.toggleClass("hidden");
-
-        if (localStorage.getItem("color-theme")) {
-          if (localStorage.getItem("color-theme") === "dark") {
-            $("html").addClass("light");
-            localStorage.setItem("color-theme", "light");
-          } else {
-            $("html").removeClass("light");
-            localStorage.setItem("color-theme", "dark");
-          }
-
-        } else {
-          if ($("html").classList.contains("dark")) {
-            $("html").removeClass("dark");
-            localStorage.setItem("color-theme", "light");
-          } else {
-            $("html").addClass("dark");
-            localStorage.setItem("color-theme", "dark");
-          }
-        }
-      });
-      </script>-->
+ 
+      </script>
