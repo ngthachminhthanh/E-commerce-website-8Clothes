@@ -216,3 +216,21 @@ function search() {
     }
   });
 }
+
+function update_status(status_op){
+  // Lấy giá trị đã chọn
+  
+  let status = $(".donhang .trangthai select").val();
+  var id = order_id;
+  document.getElementById("test").innerHTML=status_op;
+  // Gửi yêu cầu AJAX để lấy dữ liệu được sắp xếp
+  $.ajax({
+    url: "./updatestatus.php", // Đường dẫn đến file xử lý sắp xếp
+    method: "POST",
+    data: { status_op: status, order_id: id},
+    success: function (data) {
+      // Cập nhật nội dung trang với kết quả sắp xếp
+      $("#content").html(data);
+    }
+  });
+}
