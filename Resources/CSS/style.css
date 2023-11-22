@@ -193,7 +193,6 @@ header #header__nav li a:hover:after {
 }
 
 #content .phanloai h2 {
-    font-weight: bold;
     padding-top: 30px;
     padding-left: 10px;
     pointer-events: none;
