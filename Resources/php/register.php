@@ -38,9 +38,7 @@
                           </div> <br>";
                     echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
                 }
-
             }else{
-
             ?>
 
             <header>Đăng ký</header>

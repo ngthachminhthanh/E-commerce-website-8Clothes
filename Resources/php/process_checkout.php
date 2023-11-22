@@ -3,8 +3,6 @@ session_start();
 include_once("config.php");
 include_once './components/header.php';
 
-
-
 // $isLoggedIn = isset($_SESSION['user_id']);
 // if (!$isLoggedIn) {
 //     header("Location: login.php");
@@ -172,7 +170,6 @@ if (isset($_SESSION['new_order_id'])) {
     </div>
 </div>
 </main>';
-
     } else {
         echo "Không tìm thấy thông tin đơn hàng.";
     }

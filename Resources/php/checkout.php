@@ -4,7 +4,6 @@ ob_start();
 include_once("config.php");
 include_once './components/header.php';
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Lấy thông tin từ biểu mẫu
   $name = mysqli_real_escape_string($con, $_POST["shipping-name"]);

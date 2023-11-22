@@ -1,11 +1,8 @@
 <?php
 session_start();
 require_once './config.php';
-
-$sql = "SELECT * FROM `product`
-    WHERE `Product category ID` = 2;";
+$sql = "SELECT * FROM `product` WHERE `Product category ID` = 2;";
 $all_product = $con->query($sql);
-
 include_once("./components/header.php");
 ?>
 
@@ -72,7 +69,6 @@ include_once("./components/header.php");
 
     </div>
 </div>
-
 <?php
 // include_once("./components/cartToast.php");
 include_once("./components/footer.php");

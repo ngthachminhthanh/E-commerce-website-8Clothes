@@ -3,8 +3,6 @@ session_start();
 include("config.php");
 include_once './components/header.php';
 
-
-
 // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_quantity'])) {
 //   $product_id = $_POST['product_id'];
 //   $new_quantity = $_POST['new_quantity'];
@@ -20,7 +18,6 @@ include_once './components/header.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
   $product_id = $_POST['product_id'];
   if (isset($_SESSION['shopping_cart'])) {
-
     $_SESSION['shopping_cart'] = array_filter($_SESSION['shopping_cart'], function ($item) use ($product_id) {
       return $item['product_id'] !== $product_id;
     });
@@ -160,6 +157,7 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
   </section>
 </div>
 </main>';
+
 } else {
   echo '<main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:pt-28 sm:pb-48 lg:px-0 pb-10 dark:bg-gray-800">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">

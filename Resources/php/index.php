@@ -37,7 +37,6 @@ include_once("./components/header.php");
             $exec_search = mysqli_query($con, $sql_search);
             if (mysqli_num_rows($exec_search) > 0) {
                 while ($row = mysqli_fetch_assoc($exec_search)) {
-
                     ?>
                     <div class="product dark:!bg-slate-800">
                         <table id="myTable">
@@ -120,7 +119,6 @@ include_once("./components/header.php");
             }
         }
         ?>
-
     </div>
 </div>
 

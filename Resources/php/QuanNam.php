@@ -1,11 +1,8 @@
 <?php
 session_start();
 require_once './config.php';
-
-$sql = "SELECT * FROM `product`
-    WHERE `Product category ID` = 4;";
+$sql = "SELECT * FROM `product` WHERE `Product category ID` = 4;";
 $all_product = $con->query($sql);
-
 include_once("./components/header.php");
 ?>
 

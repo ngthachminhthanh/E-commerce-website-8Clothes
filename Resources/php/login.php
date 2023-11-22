@@ -39,8 +39,6 @@ session_start();
                     echo "<a href='login.php'><button class='btn'>Quay lại</button>";
                 }
             } else {
-
-
                 ?>
                 <header>Đăng nhập</header>
                 <form action="" method="post">

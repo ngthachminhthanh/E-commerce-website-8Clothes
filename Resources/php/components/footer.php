@@ -18,9 +18,7 @@
 		</div>
 	</div>
 </footer>
-<?php
-include_once("./components/cartToast.php");
-?>
+<?php include_once("./components/cartToast.php"); ?>
 </div>
 </body>
 <script src='../JS/index.js'></script>
@@ -36,5 +34,4 @@ include_once("./components/cartToast.php");
 		});
 	});
 </script>
-
 </html>

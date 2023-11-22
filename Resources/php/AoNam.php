@@ -1,14 +1,10 @@
 <?php
 session_start();
 require_once './config.php';
-
-$sql = "SELECT * FROM `product`
-    WHERE `Product category ID` = 1;";
+$sql = "SELECT * FROM `product` WHERE `Product category ID` = 1;";
 $all_product = $con->query($sql);
-
 include_once("./components/header.php");
 ?>
-
 
 <div id="content">
     <div class="phanloai">
@@ -69,7 +65,6 @@ include_once("./components/header.php");
                 </table>
             </div>
         <?php } ?>
-
     </div>
 </div>
 
