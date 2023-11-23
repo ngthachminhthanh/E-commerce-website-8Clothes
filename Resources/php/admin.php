@@ -4,13 +4,12 @@ require_once './config.php';
 
 $sql = "SELECT distinct * FROM `orders`;";
 $all_order = $con->query($sql);
-include_once './components/header.php';
+include_once './components/admin_header.php';
 ?>
-<body>
     <div id="list_donhang">
         <div class="loai_donhang">
             <a class="button wait" href="./wait.php">Chờ xác nhận</a>
-            <a class="button delivering" href="./delivvering.php">Đang giao</a>
+            <a class="button delivering" href="./delivering.php">Đang giao</a>
             <a class="button delivered" href="./delivered.php">Đã giao</a>
             <a class="button canceled" href="./canceled.php">Đã hủy</a>
         </div>
@@ -96,9 +95,8 @@ include_once './components/header.php';
         </div>
     </div>
 
-</body>
 <?php
 // include_once("./components/cartToast.php");
-include_once("./components/footer.php");
+include_once("./components/admin_footer.php");
 ?>
 </html>

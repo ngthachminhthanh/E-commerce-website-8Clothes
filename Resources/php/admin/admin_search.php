@@ -1,14 +1,4 @@
-<?php
-session_start();
-require_once './config.php';
-
-$sql = "SELECT distinct * FROM `orders`
-where shipping_status = 'Đã hủy';";
-$all_order = $con->query($sql);
-include_once './components/admin_header.php';
-?>
-<body>
-    <div id="list_donhang">
+<div id="list_donhang">
         <div class="loai_donhang">
             <a class="button wait" href="./wait.php">Chờ xác nhận</a>
             <a class="button delivering" href="./delivering.php">Đang giao</a>
@@ -16,9 +6,28 @@ include_once './components/admin_header.php';
             <a class="button canceled" href="./canceled.php">Đã hủy</a>
         </div>
         <div class=donhang>
-            <?php
-            while ($order = $all_order->fetch_assoc()){
-                $orderId = $order['id'];
+    <?php
+        require_once '../config.php';
+        if (isset($_POST['category'])) {
+            // Đã nhận cả hai đối số
+            $category = $_POST['category'];
+            /*if (isset($_POST['sortOption'])) {
+                // Lấy giá trị đã chọn từ client
+                $sortOption = $_POST['sortOption'];
+            */
+            // Xử lý giá trị được chọn (ví dụ: sắp xếp dữ liệu)
+
+
+            // Xử lý điều kiện lọc và truy vấn sản phẩm từ cơ sở dữ liệu
+            $sql = "SELECT distinct * FROM `orders`;";
+            $all_order = $con->query($sql);
+            //$result = $con->query($sql);
+
+            // Kiểm tra nếu có kết quả trả về
+            //if ($result->num_rows > 0) {
+                while ($order = $all_order->fetch_assoc()){
+                    
+                    $orderId = $order['id'];
                 $sum_sql = "SELECT SUM(quantity) FROM order_items WHERE order_id = '$orderId';";
                 $temp = $con->query($sum_sql);
                 $temp = $temp->fetch_array();
@@ -91,15 +100,12 @@ include_once './components/admin_header.php';
                 echo'
                         </div>
                     </details>';
-                
-            }  ;
-            ?>
-        </div>
-    </div>
+                }
+           /* } else {
+                // Xử lý trường hợp không tìm thấy sản phẩm
+                echo "Không tìm thấy sản phẩm.";
+            }*/
+        }
+    ?>
+</div>
 
-</body>
-<?php
-// include_once("./components/cartToast.php");
-include_once("./components/footer.php");
-?>
-</html>

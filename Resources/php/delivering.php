@@ -5,7 +5,7 @@ require_once './config.php';
 $sql = "SELECT distinct * FROM `orders`
 where shipping_status = 'Đang giao';";
 $all_order = $con->query($sql);
-include_once './components/header.php';
+include_once './components/admin_header.php';
 ?>
 <body>
     <div id="list_donhang">
