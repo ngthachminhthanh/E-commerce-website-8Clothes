@@ -20,14 +20,6 @@
         <img src="./../logo3.png" class="box-shadow: 20px 3px 15px 13px #376796" alt="logo">
       </a>
     </div>
-    <div class="searchBar">
-      <div class="searchIcon">
-        <button type="submit" id="searchButton" onclick="searchDH()">
-          <i class="fa-solid fa-magnifying-glass dark:!text-gray-100"></i>
-        </button>
-      </div>
-      <input class="dark:bg-gray-800 outline-none text-slate-900 dark:text-gray-100" type="text" id="input" name="input" value="" placeholder="Nhập sản phẩm cần tìm...">
-    </div>
       <ul id="header__nav" class="!flex items-center">
         <?php 
             if(isset($_SESSION['username'])){
