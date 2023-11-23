@@ -109,7 +109,7 @@ ob_end_flush();
           <div class="mt-1">
             <input required
               class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-              type="email" id="contact-email" name="contact-email" autocomplete="email" />
+              type="email" id="contact-email" name="contact-email" autocomplete="email" placeholder="VD: abc123@gmail.com"/>
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@ ob_end_flush();
             <div class="mt-1">
               <input required
                 class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                type="text" id="shipping-name" placeholder="injection" name="shipping-name" autocomplete="given-name" />
+                type="text" id="shipping-name" placeholder="VD: Nguyễn Văn A" name="shipping-name" autocomplete="given-name" />
             </div>
           </div>
 
@@ -133,7 +133,7 @@ ob_end_flush();
             <div class="mt-1">
               <input required
                 class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                type="tel" placeholder="injection" name="shipping-phone" id="shipping-phone" />
+                type="tel" placeholder="VD: 0XXX-XXX-XXX" name="shipping-phone" id="shipping-phone" />
             </div>
           </div>
           <div class="sm:col-span-3">
@@ -142,7 +142,7 @@ ob_end_flush();
             <div class="mt-1">
               <input required
                 class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                type="text" placeholder="injection" name="shipping-address" id="shipping-address"
+                type="text" placeholder="VD: Số 549/89/21 đường Xô Viết Nghệ Tĩnh" name="shipping-address" id="shipping-address"
                 autocomplete="street-address" />
             </div>
           </div>

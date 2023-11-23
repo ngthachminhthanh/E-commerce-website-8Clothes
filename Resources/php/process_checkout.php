@@ -81,7 +81,7 @@ if (isset($_SESSION['new_order_id'])) {
                                    ' . $item['Name'] . '
                                 </h4>
                                 <p class="mt-2 sm:mt-0">
-                                    $' . $total_product_price_vnd . '
+                                    ' . $total_product_price_vnd . '
                                 </p>
                             </div>
                                                                         <ul class="mt-2 space-x-2 divide-x divide-slate-200 text-slate-700">
