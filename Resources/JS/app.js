@@ -2,7 +2,7 @@
 function showCartToast(product_name) {
   var toastBody = $("#cartToast .toast-body");
 
-  toastBody.text("Đã thêm sản phẩm  vào giỏ hàng.");
+  toastBody.text("Đã thêm sản phẩm vào giỏ hàng.");
 
   $("#cartToast").toast({
     delay: 2000
