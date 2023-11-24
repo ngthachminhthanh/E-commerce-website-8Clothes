@@ -169,6 +169,7 @@ header #header__nav li a:hover:after {
 
 #content .phanloai h2{
     font-size: 16px;
+    font-weight: bold;
 }
 
 .phanloai .loai {
@@ -327,10 +328,11 @@ header #header__nav li a:hover:after {
 }
 
 .footer {
-	background-color: gray;
+    display: flex;
+    justify-content:space-around;
+	background-color: #000 !important;
     overflow: hidden;
     position: fixed;
-	background-color: #fff;
 	width: 100%;
     bottom: 0;
 }
@@ -350,16 +352,16 @@ ul {
 }
 
 .footer-col {
-    width: 50%;
-	padding: 5px 15px;
+    width: 50% !important;
+	padding-top: 20px;
 }
 
 .footer-col h4 {
     font-size: 14px;
     width: max-content;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #bab3b3;
 	text-transform: capitalize;
-	color: #000;
+	color: #fff;
 	margin-bottom: 10px;
 	font-weight: 500;
 	position: relative;
@@ -377,8 +379,8 @@ ul {
 }
 
 .footer-col .social-links a {
-	color: #000;
-	background-color: rgba(53, 51, 51, 0.2);
+	color: #fff;
+	background-color: #8a8888;
 	display: inline-block;
 	height: 30px;
 	width: 30px;
