@@ -26,7 +26,12 @@
                     echo "<div class='message'>
                               <p>Email này đã được sử dụng, vui lòng thử Email khác!</p>
                           </div> <br>";
-                    echo "<a href='javascript:self.history.back()'><button class='btn'>Quay lại</button>";
+
+                    if(isset($_GET['passToCart']) && $_GET['passToCart'] == 1){
+                        echo "<a href='login.php?passToCart=1'><button class='btn'>Quay lại</button>";
+                    } else {
+                        echo "<a href='login.php'><button class='btn'>Quay lại</button>";
+                    }
                 }
                 else{
                     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -36,7 +41,12 @@
                     echo "<div class='message'>
                               <p style=\"color: green;\">Đăng ký thành công!</p>
                           </div> <br>";
-                    echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
+
+                    if(isset($_GET['passToCart']) && $_GET['passToCart'] == 1){
+                        echo "<a href='login.php?passToCart=1'><button class='btn'>Đăng nhập ngay</button>";
+                    } else {
+                        echo "<a href='login.php'><button class='btn'>Đăng nhập ngay</button>";
+                    }
                 }
             }else{
             ?>
