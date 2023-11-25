@@ -33,7 +33,7 @@ session_start();
                 if ($row && password_verify($password, $row['Password'])) {
                     $_SESSION['valid'] = $row['Email'];
                     $_SESSION['username'] = $row['Username'];
-                    $_SESSION['age'] = $row['Age'];
+                    $_SESSION['phone'] = $row['Phone'];
                     $_SESSION['id'] = $row['Id'];
 
                     if($_GET['passToCart'] && $_GET['passToCart'] == 1){

@@ -16,7 +16,7 @@
             if(isset($_POST['submit'])){
               $username = mysqli_real_escape_string($con, $_POST['username']);
               $email = mysqli_real_escape_string($con, $_POST['email']);
-              $age = mysqli_real_escape_string($con, $_POST['age']);
+              $phone = mysqli_real_escape_string($con, $_POST['phone']);
               $password = mysqli_real_escape_string($con, $_POST['password']);
           
 
@@ -28,14 +28,14 @@
                           </div> <br>";
 
                     if(isset($_GET['passToCart']) && $_GET['passToCart'] == 1){
-                        echo "<a href='login.php?passToCart=1'><button class='btn'>Quay lại</button>";
+                        echo "<a href='register.php?passToCart=1'><button class='btn'>Quay lại</button>";
                     } else {
-                        echo "<a href='login.php'><button class='btn'>Quay lại</button>";
+                        echo "<a href='register.php'><button class='btn'>Quay lại</button>";
                     }
                 }
                 else{
                     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-                    mysqli_query($con,"INSERT INTO customer(Username,Email,Age,Password) VALUES('$username','$email','$age','$hashed_password')") or die("Error Occured");
+                    mysqli_query($con,"INSERT INTO customer(Username,Email,Phone,Password) VALUES('$username','$email','$phone','$hashed_password')") or die("Error Occured");
                     
 
                     echo "<div class='message'>
@@ -52,9 +52,9 @@
             ?>
 
             <header>Đăng ký</header>
-            <form action="" method="post" onsubmit="return validateForm()">
+            <form action="" method="post">
                 <div class="field input">
-                    <label for="username">Tên người dùng</label>
+                    <label for="username">Họ tên</label>
                     <input type="text" name="username" id="username" autocomplete="off" required>
                 </div>
 
@@ -64,8 +64,8 @@
                 </div>
 
                 <div class="field input">
-                    <label for="age">Tuổi</label>
-                    <input type="number" name="age" id="age" autocomplete="off" required min="0">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" name="phone" id="phone" autocomplete="off" required min="0">
                 </div>
                 <div class="field input">
                     <label for="password">Mật khẩu</label>
@@ -83,20 +83,4 @@
         </div>
     </div>
 </body>
-<script>
-function validateForm() {
-    let ageInput = document.getElementById("age");
-    // Thực hiện kiểm tra độ tuổi, ở đây là kiểm tra đủ 16 tuổi hay không
-    if (!isOldEnough(ageInput.value)) {
-        alert("Bạn phải đủ 16 tuổi để đăng ký!")
-        return false; // Ngăn chặn biểu mẫu được gửi đi
-    }
-    // Nếu mọi thứ đều hợp lệ, cho phép gửi biểu mẫu
-    return true;
-}
-function isOldEnough(age) {
-    // Lấy ngày hiện tại
-    return (age >= 16);
-}
-</script>
 </html>
