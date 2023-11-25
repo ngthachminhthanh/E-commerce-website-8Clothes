@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.github",
+    "\\.github\\workflows",
+    "\\Resources",
+    "\\Resources\\Database",
+    "\\Resources\\Database\\img_products",
+    "\\Resources\\Font",
+    "\\Resources\\Image",
+    "\\Resources\\JS",
+    "\\Resources\\php"
+  ],
+  "SelectedNode": "\\Resources\\php\\login.php",
+  "PreviewInSolutionExplorer": false
+}

@@ -30,6 +30,11 @@ session_start();
                     $_SESSION['username'] = $row['Username'];
                     $_SESSION['age'] = $row['Age'];
                     $_SESSION['id'] = $row['Id'];
+
+                    if($email === "admin@gmail.com" && $password === "admin"){
+                        header("Location: admin.php");
+                    }
+
                     if($_GET['passToCart'] && $_GET['passToCart'] == 1){
                         header("Location: cart.php");
                     } else {
