@@ -139,8 +139,8 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
     </div>
 
     <div class="mt-10">
-      <a href="checkout.php" class="btn btn-primary hover:opacity-80 dark:!bg-indigo-500 dark:hover:!bg-indigo-600 !border-none btn-xl w-full" 
-      ' . ( /**/NULL) . 'style="background: #990B61; color:#fff; border-color: #000;">
+      <a class="btn btn-primary hover:opacity-80 dark:!bg-indigo-500 dark:hover:!bg-indigo-600 !border-none btn-xl w-full" 
+      ' . ( /**/NULL) . 'style="background: #990B61; color:#fff; border-color: #000;", id = "btn_muahang">
         Mua hàng
       </a>
     </div>
@@ -189,3 +189,22 @@ $con->close();
 ?>
 <!-- <script src="../JS/tailwind.config.js"></script>
 <script src="../JS/app.js"></script> -->
+<script>
+  $(document).ready(function(){
+    $("#btn_muahang").click(function(){
+      $.ajax({
+        url: "process_cart.php", 
+        type: "POST",
+        data: {action: 'click'},
+        success: function(response){
+          if (response === "checkout.php"){
+            window.location.href = `${response}`;
+          }
+          else if (response === "login.php"){
+            window.location.href = `${response}` + '?passToCart=1';
+          }
+        }
+      })
+    })
+  })
+</script>

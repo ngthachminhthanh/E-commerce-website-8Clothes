@@ -30,13 +30,21 @@ session_start();
                     $_SESSION['username'] = $row['Username'];
                     $_SESSION['age'] = $row['Age'];
                     $_SESSION['id'] = $row['Id'];
-                    header("Location: ./index.php");
+                    if($_GET['passToCart'] && $_GET['passToCart'] == 1){
+                        header("Location: cart.php");
+                    } else {
+                        header("Location: ./index.php");
+                    }
                     exit();
                 } else {
                     echo "<div class='message'>
                                     <p>Sai tài khoản hoặc mật khẩu!</p>
                                 </div> <br>";
-                    echo "<a href='login.php'><button class='btn'>Quay lại</button>";
+                    if(isset($_GET['passToCart']) && $_GET['passToCart'] == 1){
+                        echo "<a href='login.php?passToCart=1'><button class='btn'>Quay lại</button>";
+                    } else {
+                        echo "<a href='login.php'><button class='btn'>Quay lại</button>";
+                    }
                 }
             } else {
                 ?>
