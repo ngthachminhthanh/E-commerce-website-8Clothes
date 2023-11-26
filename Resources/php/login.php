@@ -70,7 +70,7 @@ session_start();
                         <input type="submit" class="btn" name="submit" value="Đăng nhập">
                     </div>
                     <div class="links">
-                        Chưa có tài khoản? <a href="#" onclick="passToCart()">Đăng ký ngay</a>
+                        Chưa có tài khoản? <a href="#" onclick="passToCart_login()">Đăng ký ngay</a>
                     </div>
                 </form>
             </div>
@@ -79,7 +79,7 @@ session_start();
 </body>
 
 <script>
-    function passToCart() {
+    function passToCart_login() {
         let currLink = window.location.href;
         if(currLink.includes("passToCart=1")){
             window.location.href = "register.php?passToCart=1";

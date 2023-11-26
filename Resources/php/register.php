@@ -76,11 +76,23 @@
                     <input type="submit" class="btn" name="submit" value="Đăng ký">
                 </div>
                 <div class="links">
-                    Đã là thành viên? <a href="login.php">Đăng nhập</a>
+                    Đã là thành viên? <a href="#" onclick="passToCart_register()">Đăng nhập</a>
                 </div>
             </form>
             <?php } ?>
         </div>
     </div>
 </body>
+
+<script>
+    function passToCart_register() {
+        let currLink = window.location.href;
+        if(currLink.includes("passToCart=1")){
+            window.location.href = "login.php?passToCart=1";
+        }else{
+            window.location.href = "login.php";
+        }
+    }
+</script>
+
 </html>

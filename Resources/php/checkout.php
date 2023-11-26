@@ -152,7 +152,7 @@ ob_end_flush();
               class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-200"
               for="shipping-country"> Tỉnh thành </label>
             <div class="mt-1">
-              <select
+              <select required
                 class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
                 id="shipping-city" name="shipping-city" autocomplete="country-name"
                 onchange="$('#shipping-city-text').val($(this).find('option:selected').text())">
@@ -166,7 +166,7 @@ ob_end_flush();
               class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-200"
               for="shipping-country"> Quận huyện </label>
             <div class="mt-1">
-              <select
+              <select required
                 class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
                 id="shipping-district" name="shipping-district" autocomplete="country-name"
                 onchange="$('#shipping-district-text').val($(this).find('option:selected').text())">
@@ -181,7 +181,7 @@ ob_end_flush();
               class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-200"
               for="shipping-country"> Phường xã </label>
             <div class="mt-1">
-              <select
+              <select required
                 class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
                 id="shipping-ward" name="shipping-ward" autocomplete="country-name"
                 onchange="$('#shipping-ward-text').val($(this).find('option:selected').text())">
