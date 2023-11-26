@@ -87,7 +87,7 @@ header .searchBar {
     display: inline-block;
     position: absolute;
     z-index: 2;
-    top: 35%;
+    top: 50%;
     left: 40%;
     transform: translate(-50%, -50%);
 }
@@ -227,15 +227,15 @@ header #header__nav li a:hover:after {
 
 /*Products*/
 #content .product {
-    width: 80%;
+    width: 45%;
     height: 240px;
-    padding: 16px 18px;
+    padding: 8px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 30px 30px;
+    margin: 24px;
     transition: 0.2s ease;
     position: relative;
-    display: block;
+    display: inline-block;
     background-color: #fff;
 }
 
