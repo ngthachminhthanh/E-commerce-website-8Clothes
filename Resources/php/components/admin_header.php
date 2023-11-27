@@ -29,7 +29,9 @@
           <!-- href="index.php" -->
         <?php
           if(isset($_SESSION['valid'])){
-            echo '<li><a id="logOutBtn" class="dark:!text-gray-100 dark:hover:!bg-indigo-600" href="#">ĐĂNG XUẤT</a></li>';
+            echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600" href="index.php">ĐĂNG XUẤT</a></li>';
+            session_unset();
+            session_destroy();
           }
           else {
             echo '<li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 "  href="./login.php">ĐĂNG NHẬP</a></li>';

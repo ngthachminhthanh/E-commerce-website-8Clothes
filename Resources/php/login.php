@@ -24,11 +24,6 @@ session_start();
 
                 $result = mysqli_query($con, "SELECT * FROM customer WHERE Email='$email'") or die("Select Error");
                 $row = mysqli_fetch_assoc($result);
-
-                if($email === "admin@gmail.com" && $password === "admin"){
-                    header("Location: admin.php");
-                    exit();
-                }
  
                 if ($row && password_verify($password, $row['Password'])) {
                     $_SESSION['valid'] = $row['Email'];
@@ -36,6 +31,11 @@ session_start();
                     $_SESSION['phone'] = $row['Phone'];
                     $_SESSION['id'] = $row['Id'];
 
+                    if($email === "admin@gmail.com" && $password === "admin"){
+                        header("Location: admin.php");
+                        exit();
+                    }
+                    
                     if($_GET['passToCart'] && $_GET['passToCart'] == 1){
                         header("Location: cart.php");
                     } else {
