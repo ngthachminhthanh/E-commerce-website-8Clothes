@@ -5,6 +5,7 @@
 			<ul>
 				<li><a href="#">Số điện thoại +84-XXX-XXX-XXX</a></li>
 				<li><a href="#">Địa chỉ TPHCM</a></li>
+				<li><a href="#">Email 8Clothes@gmail.com</a></li>
 			</ul>
 		</div>
 		<div class="footer-col">
