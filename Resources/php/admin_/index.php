@@ -5,10 +5,10 @@ include('ketnoi.php');
 if (isset($_POST['submit'])) {
     $username_ = mysqli_real_escape_string($conn, $_POST['username_']);
     $password_ = mysqli_real_escape_string($conn, $_POST['password_']);
-    // $hashed_password = password_hash($password_, PASSWORD_BCRYPT);
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
     echo $username_;
     echo $password_;
-
+    echo $hashed_password;
     $query = "SELECT * FROM customer WHERE Username ='$username_' LIMIT 1";
     ///*************** 
     // user type = 1: admin

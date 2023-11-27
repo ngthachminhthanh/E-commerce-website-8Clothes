@@ -103,6 +103,7 @@ if (!isset($_SESSION['username_'])) {
                                         </li>
                                         <li>
                                             <a href="#" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-700 hover:text-sky-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
+                                            <a href="quantri.php?page_layout=donhang" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-700 hover:text-sky-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
                                                 <svg class="h-6 w-6 shrink-0 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-white dark:group-hover:bg-slate-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z"></path>
                                                 </svg> Đơn hàng
@@ -175,7 +176,7 @@ if (!isset($_SESSION['username_'])) {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-700 hover:text-sky-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
+                                    <a href="quantri.php?page_layout=donhang" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-700 hover:text-sky-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
                                         <svg class="h-6 w-6 shrink-0 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-white dark:group-hover:bg-slate-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z"></path>
                                         </svg> Đơn hàng
@@ -227,7 +228,7 @@ if (!isset($_SESSION['username_'])) {
         </div>
 
         <div class="lg:pl-72">
-            <div class="lg:mx-auto lg:max-w-7xl lg:px-8">
+            <div class="lg:mx-auto lg:max-w-7xl lg:px-8 dark:bg-slate-800 dark:ring-white/10 dark:shadow-inner ">
                 <div class="flex h-16 items-center gap-x-4 border-b border-slate-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none dark:bg-slate-900 dark:border-white/10">
                     <button id='toggleBtn' onclick='document.querySelector("#toggleNav").style.display=document.querySelector("#toggleNav").style.display?"":"none"' type="button" class="-m-2.5 p-2.5 text-slate-700 lg:hidden dark:text-slate-400">
                         <span class="sr-only">Open sidebar</span>
@@ -327,6 +328,21 @@ if (!isset($_SESSION['username_'])) {
                         break;
                     case 'caidat':
                         include_once('caidat.php');
+                        break;
+                    case 'donhang':
+                        include_once('donhang.php');
+                        break;
+                    case 'wait':
+                        include_once('wait.php');
+                        break;
+                    case 'delivering':
+                        include_once('delivering.php');
+                        break;
+                    case 'delivered':
+                        include_once('delivered.php');
+                        break;
+                    case 'canceled':
+                        include_once('canceled.php');
                         break;
                 }
             } else {

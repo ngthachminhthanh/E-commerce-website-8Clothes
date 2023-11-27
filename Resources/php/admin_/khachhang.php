@@ -32,7 +32,7 @@ $query = mysqli_query($conn, $sql);
 
 
 
-<main class="py-10">
+<main class="py-10 dark:bg-slate-800 dark:ring-white/10 dark:shadow-inner">
     <div>
         <div class="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
             <div class="min-w-0 flex-1">

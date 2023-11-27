@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   //mysqli_prepare
   // Tạo đơn hàng
-  $sql = "INSERT INTO orders (user_id, total_amount, order_date, order_number, payment_status, shipping_status) VALUES ('$userId', '$total_price', NOW(), '', 'Chưa thanh toán', 'Chưa vận chuyển')";
+  $sql = "INSERT INTO orders (user_id, total_amount, order_date, order_number, payment_status, shipping_status) VALUES ('$userId', '$total_price', NOW(), '', 'Chưa thanh toán', 'Chờ xác nhận')";
   if ($con->query($sql) === TRUE) {
     $orderId = $con->insert_id;
 
