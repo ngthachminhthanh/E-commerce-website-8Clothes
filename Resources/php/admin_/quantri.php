@@ -91,7 +91,7 @@ if (!isset($_SESSION['username_'])) {
                             <img src="../../logo3.png" alt="Admin" class="h-8 w-auto">
                         </div>
                         <nav class="flex flex-1 flex-col">
-                            <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                            <ul role="list" class="flex flex-1 flex-col gap-y-70">
                                 <li>
                                     <ul role="list" class="-mx-2 space-y-1">
                                         <li>

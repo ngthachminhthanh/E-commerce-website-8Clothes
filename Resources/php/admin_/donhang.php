@@ -16,7 +16,10 @@ $perRow = $page * $rowsPerPage - $rowsPerPage;
 
 $searchTerm = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 $searchTerm = trim($searchTerm);
-$sql = "SELECT * FROM `orders` LIMIT $perRow, $rowsPerPage;";
+$sql = "SELECT * 
+        FROM orders LEFT JOIN order_details ON orders.id = order_details.order_id
+        WHERE orders.id LIKE '%$searchTerm%' OR name LIKE '%$searchTerm%' OR address LIKE '%$searchTerm%' OR phone = '$searchTerm' 
+        LIMIT $perRow, $rowsPerPage;";
 $all_order = mysqli_query($conn, $sql);
 //$all_order = $conn->query($sql);
 //include_once '../components/admin_header.php';

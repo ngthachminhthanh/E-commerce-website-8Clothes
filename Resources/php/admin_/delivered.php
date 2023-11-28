@@ -16,7 +16,10 @@ $perRow = $page * $rowsPerPage - $rowsPerPage;
 
 $searchTerm = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 $searchTerm = trim($searchTerm);
-$sql = "SELECT * FROM `orders` WHERE `shipping_status` = 'Đã giao' LIMIT $perRow, $rowsPerPage;";
+$sql = "SELECT * 
+FROM orders LEFT JOIN order_details ON orders.id = order_details.order_id
+WHERE (orders.id LIKE '%$searchTerm%' OR name LIKE '%$searchTerm%' OR address LIKE '%$searchTerm%' OR phone = '$searchTerm') AND shipping_status = 'Đã giao'
+LIMIT $perRow, $rowsPerPage;";
 $all_order = mysqli_query($conn, $sql);
 //$all_order = $conn->query($sql);
 //include_once '../components/admin_header.php';
@@ -50,7 +53,7 @@ $all_order = mysqli_query($conn, $sql);
                         </div>
 
                         <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                            <input type="hidden" name="page_layout" value="donhang">
+                            <input type="hidden" name="page_layout" value="delivering">
 
                             <input class="appearance-none border border-slate-300 rounded-md shadow-sm checked:bg-sky-500 checked:text-sky-500 disabled:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:text-slate-300 dark:focus:ring-offset-slate-900 dark:checked:bg-sky-500 placeholder-slate-500 w-full pl-10 sm:text-sm focus:placeholder-slate-400 dark:focus:placeholder-slate-600" name="search" type="text" placeholder="Tìm kiếm đơn hàng">
                             <button type="submit" class="absolute inset-y-0 right-0 flex items-center pr-3" style="display: none;">
@@ -154,7 +157,7 @@ $all_order = mysqli_query($conn, $sql);
                 if ($i == $page) {
                     $listPage .= " <span class='border-b'>" . $i . "</span> ";
                 } else {
-                    $listPage .= ' <a href="' . $_SERVER['PHP_SELF'] . '?page=' . $i . '&page_layout=donhang&search=' . $searchTerm . '">' . $i . '</a> ';
+                    $listPage .= ' <a href="' . $_SERVER['PHP_SELF'] . '?page=' . $i . '&page_layout=delivering&search=' . $searchTerm . '">' . $i . '</a> ';
                 }
             }
             ?>
@@ -166,14 +169,14 @@ $all_order = mysqli_query($conn, $sql);
                     <nav role="navigation" class="flex items-center justify-between">
                         <div class="flex justify-between flex-1 sm:hidden">
                             <span>
-                                <a href="<?php echo $page > 1 ?  $_SERVER['PHP_SELF'] . '?page_layout=donhang&page=' . ($page - 1) : 'javascript:void(0)'; ?>" <?php echo $page == $totalPage ? 'role="link" aria-disabled="true"' : ''; ?>>
+                                <a href="<?php echo $page > 1 ?  $_SERVER['PHP_SELF'] . '?page_layout=delivering&page=' . ($page - 1) : 'javascript:void(0)'; ?>" <?php echo $page == $totalPage ? 'role="link" aria-disabled="true"' : ''; ?>>
                                     <button type="button" class="btn btn-default" <?php echo $page == 1 ? 'disabled' : ''; ?>>
                                         « Previous
                                     </button>
                                 </a>
                             </span>
 
-                            <span> <a href="<?php echo $page < $totalPage ?  $_SERVER['PHP_SELF'] . '?page_layout=donhang&search=' . $searchTerm . '' . '&page=' . ($page + 1) : 'javascript:void(0)'; ?>" <?php echo $page == $totalPage ? 'role="link" aria-disabled="true"' : ''; ?>>
+                            <span> <a href="<?php echo $page < $totalPage ?  $_SERVER['PHP_SELF'] . '?page_layout=delivering&search=' . $searchTerm . '' . '&page=' . ($page + 1) : 'javascript:void(0)'; ?>" <?php echo $page == $totalPage ? 'role="link" aria-disabled="true"' : ''; ?>>
                                     <button type="button" class="ml-3 btn btn-default" <?php echo $page == $totalPage ? 'disabled' : ''; ?>>
                                         Sau »
                                     </button>
@@ -197,7 +200,7 @@ $all_order = mysqli_query($conn, $sql);
                                     </a>
                                 </span>
                                 <span>
-                                    <a href="<?php echo $page < $totalPage ?  $_SERVER['PHP_SELF'] . '?page_layout=donhang&search=' . $searchTerm . '' . '&page=' . ($page + 1) : 'javascript:void(0)'; ?>">
+                                    <a href="<?php echo $page < $totalPage ?  $_SERVER['PHP_SELF'] . '?page_layout=delivering&search=' . $searchTerm . '' . '&page=' . ($page + 1) : 'javascript:void(0)'; ?>">
                                         <button type="button" class="ml-3 btn btn-default" <?php echo $page == $totalPage ? 'disabled' : ''; ?>>
                                             Sau »
                                         </button>
