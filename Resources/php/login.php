@@ -32,7 +32,7 @@ session_start();
                     $_SESSION['id'] = $row['Id'];
 
                     if($email === "admin@gmail.com" && $password === "admin"){
-                        header("Location: admin.php");
+                        header("Location: ./admin_/quantri.php");
                         exit();
                     }
                     

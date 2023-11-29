@@ -2,10 +2,10 @@
 session_start();
 include_once('ketnoi.php');
 
-if (!isset($_SESSION['username_'])) {
-    header('location: index.php');
-    exit();
-}
+// if (!isset($_SESSION['username_'])) {
+//     header('location: index.php');
+//     exit();
+// }
 
 ?>
 
