@@ -72,7 +72,7 @@ include_once('ketnoi.php');
 </head>
 
 <body id="main" class="antialiased font-sans h-full bg-white dark:bg-slate-900">
-    <div>
+    <div class = "w-full h-full bg-white dark:bg-slate-900">
         <div id="toggleNav" class="relative z-50 lg:hidden" role="dialog" aria-modal="true" style="display: none;">
             <div></div>
 
@@ -213,7 +213,7 @@ include_once('ketnoi.php');
         </div>
 
         <div class="lg:pl-72">
-            <div class="lg:mx-auto lg:max-w-7xl lg:px-8 dark:bg-slate-800 dark:ring-white/10 dark:shadow-inner ">
+            <div class="lg:mx-auto lg:max-w-7x2 lg:px-10 dark:bg-slate-800 dark:ring-white/10 dark:shadow-inner ">
                 <div class="flex h-16 items-center gap-x-4 border-b border-slate-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none dark:bg-slate-900 dark:border-white/10">
                     <button id='toggleBtn' onclick='document.querySelector("#toggleNav").style.display=document.querySelector("#toggleNav").style.display?"":"none"' type="button" class="-m-2.5 p-2.5 text-slate-700 lg:hidden dark:text-slate-400">
                         <span class="sr-only">Open sidebar</span>

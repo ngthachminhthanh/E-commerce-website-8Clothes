@@ -179,7 +179,10 @@ $all_order = mysqli_query($conn, $sql);
 
 
             <?php
-            $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM  `order_details` WHERE `address` LIKE '%$searchTerm%'"));
+            $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * 
+                                                            FROM orders LEFT JOIN order_details ON orders.id = order_details.order_id
+                                                            WHERE (orders.id LIKE '%$searchTerm%' OR name LIKE '%$searchTerm%' OR address LIKE '%$searchTerm%' OR phone = '$searchTerm') AND shipping_status = 'Đang giao'
+                                                            LIMIT $perRow, $rowsPerPage;"));
             $totalPage = ceil($totalRows / $rowsPerPage);
             $listPage = '';
             for ($i = 1; $i <= $totalPage; $i++) {
