@@ -1,8 +1,8 @@
 <?php
 include_once('ketnoi.php');
-if (!isset($_SESSION['username_'])) {
-    header('location:index.php');
-}
+// if (!isset($_SESSION['username_'])) {
+//     header('location:index.php');
+// }
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
