@@ -2,10 +2,10 @@
 // session_start();
 include_once('ketnoi.php');
 
-if (!isset($_SESSION['username_'])) {
-  header('location:index.php');
-  exit();
-}
+// if (!isset($_SESSION['username_'])) {
+//   header('location:index.php');
+//   exit();
+// }
 
 $rowsPerPage = isset($_SESSION['rows_per_page']) ? $_SESSION['rows_per_page'] : 10;
 
