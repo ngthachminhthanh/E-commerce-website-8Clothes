@@ -340,9 +340,10 @@ include_once('ketnoi.php');
                     case 'canceled':
                         include_once('canceled.php');
                         break;
+                    case 'gioithieu':
+                        include_once('gioithieu.php');
+                        break;
                 }
-            } else {
-                include_once('gioithieu.php');
             }
             ?>
 
