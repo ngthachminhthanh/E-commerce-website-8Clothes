@@ -108,7 +108,7 @@ include_once("./components/header.php");
                                         <?php echo $row["Price"] ?> VND
                                     </h4>
                                 </div>
-                                <a href="#"
+                                <a href="#0"
                                     onclick="addToCart(<?php echo $row['Id']; ?>, '<?php echo $row['Name']; ?>', '<?php echo $row['Image']; ?>', <?php echo $row['Price']; ?>, <?php echo '1' ?>)"
                                     class="product-cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
                             </td>
