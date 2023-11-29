@@ -160,11 +160,13 @@ $all_order = mysqli_query($conn, $sql);
                                                     break;
                                             }
                                             if ($conn->query($sql1) === TRUE) {
-                                                echo "Record updated successfully";
+                                                // echo "Record updated successfully";
                                               } else {
-                                                echo "Error updating record: " . $conn->error;
+                                                // echo "Error updating record: " . $conn->error;
                                               }
-                                        } else echo "loi roi";
+                                        } else {
+                                            // echo "loi roi";
+                                        }
                                         }
                                         ?>
                                     </tbody>
