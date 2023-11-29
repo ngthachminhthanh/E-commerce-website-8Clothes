@@ -47,6 +47,10 @@
     </div>
       <ul id="header__nav" class="!flex items-center">
         <?php 
+            if(isset($_SESSION['valid']) && $_SESSION['valid'] === "admin@gmail.com"){
+              session_unset();
+            }  
+
             if(isset($_SESSION['username'])){
                 echo '<i class="fa-regular fa-user"></i>';
                 echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
