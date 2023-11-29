@@ -275,10 +275,9 @@ include_once('ketnoi.php');
                             </div>
                             <div class="hidden lg:block lg:h-6 lg:w-px lg:bg-slate-200 dark:bg-white/10" aria-hidden="true"></div>
                             <div class="relative">
-                                <div class="">
-                                    <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button" :aria-expanded="open.toString()" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button" onclick="$('#menuContent').toggle();" >
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="h-8 w-8 flex-shrink-0 rounded-full bg-slate-100 dark:bg-slate-800" src="/img/avatar.svg" alt="Admin">
+                                        <img class="h-8 w-8 flex-shrink-0 rounded-full bg-slate-100 dark:bg-slate-800" src="https://ui-avatars.com/api/?name=Admin" alt="Admin">
                                         <span class="hidden lg:flex lg:items-center">
                                             <span class="ml-4 text-sm font-semibold leading-6 text-gray-900 dark:text-white" aria-hidden="true">
                                                 Admin
@@ -287,6 +286,18 @@ include_once('ketnoi.php');
                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
                                             </svg> </span>
                                     </button>
+                                <div class="absolute z-50 my-2 w-48 rounded-md shadow-lg origin-top-right right-0 top-full" id="menuContent" style="display: none;">
+                                    <div class="rounded-md ring-1 ring-slate-900/10 dark:ring-white/5 py-1 bg-white dark:bg-slate-800">
+                                        <a class="block px-4 py-2 text-sm leading-5 text-slate-700 hover:bg-slate-100 focus:outline-none focus:bg-slate-100 dark:text-slate-200 dark:focus:bg-slate-900/40 dark:hover:bg-slate-900/40" href="#profile">
+                                            Đổi mật khẩu
+                                        </a>
+                                        <hr class="border-slate-200 dark:border-white/10">
+                                        <div class="relative cursor-pointer block px-4 py-2 text-sm leading-5 text-slate-700 hover:bg-slate-100 focus:outline-none focus:bg-slate-100 transition duration-150 ease-in-out dark:text-slate-200 dark:focus:bg-slate-900/40 dark:hover:bg-slate-900/40">
+                                            <div>
+                                                <a href="logout.php"><span>Đăng xuất</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
