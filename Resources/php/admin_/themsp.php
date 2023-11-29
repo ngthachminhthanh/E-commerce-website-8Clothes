@@ -1,10 +1,10 @@
 <?php
 include_once('ketnoi.php');
 
-if (!isset($_SESSION['username_'])) {
-    header('location: index.php');
-    exit();
-}
+// if (!isset($_SESSION['username_'])) {
+//     header('location: index.php');
+//     exit();
+// }
 
 $categoryQuery = mysqli_query($conn, "SELECT * FROM `product category`") or die("Query Error: " . mysqli_error($conn));
 $selectedCategories = array();
