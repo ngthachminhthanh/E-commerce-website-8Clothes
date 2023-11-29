@@ -107,7 +107,7 @@ $query = mysqli_query($conn, $sql);
                                                 <td class="relative px-3 py-4 font-medium text-sm text-slate-900 text-left whitespace-nowrap dark:text-slate-200">
                                                     <div class="">
                                                         <!-- <a href="quantri.php?page_layout=khachhang&Id=<?php echo $row['Id']; ?>" class="inline-flex items-center truncate hover:text-sky-600 dark:hover:text-sky-400"> -->
-                                                        <a href="quantri.php?page_layout=khachhang ?>" class="inline-flex items-center truncate hover:text-sky-600 dark:hover:text-sky-400">
+                                                        <a href="#0" class="inline-flex items-center truncate hover:text-sky-600 dark:hover:text-sky-400">
                                                             <span>
                                                                 <?php echo $row['Email']; ?>
                                                             </span>
