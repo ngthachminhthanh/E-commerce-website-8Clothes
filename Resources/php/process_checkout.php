@@ -87,24 +87,7 @@ if (isset($_SESSION['new_order_id'])) {
                                                                         <ul class="mt-2 space-x-2 divide-x divide-slate-200 text-slate-700">
                                                                                         </ul>
                                                                 </div>
-                        <div class="hidden mt-2 sm:flex">
-                            <div class="flex items-center space-x-4 divide-x divide-slate-200 text-sm font-medium">
-                                <div class="flex flex-1 justify-center">
-                                    <a href="https://" class="btn btn-link whitespace-nowrap">
-                                        Xem sản phẩm
-                                    </a>
-                                </div>
-                            </div>
-                                                                </div>
-                    </div>
-                </div>
-                <div class="mt-6 sm:hidden">
-                    <div class="mt-6 flex items-center space-x-4 divide-x divide-slate-200 border-t border-slate-200 dark:!border-gray-500  pt-4 text-sm font-medium">
-                        <div class="flex flex-1 justify-center">
-                            <a href="https://" class="btn btn-link whitespace-nowrap">
-                                Xem sản phẩm
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </li>';
