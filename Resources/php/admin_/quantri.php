@@ -25,7 +25,7 @@ include_once('ketnoi.php');
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../CSS/admin_style.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
@@ -95,7 +95,7 @@ include_once('ketnoi.php');
                                 <li>
                                     <ul role="list" class="-mx-2 space-y-1">
                                         <li>
-                                            <a href="quantri.php?page_layout=gioithieu" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-700 hover:text-sky-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
+                                            <a href="quantri.php?page_layout=gioithieu" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-700 hover:text-sky-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-white">
                                                 <svg class="h-6 w-6 shrink-0 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-white dark:group-hover:bg-slate-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
                                                 </svg> Trang chủ
