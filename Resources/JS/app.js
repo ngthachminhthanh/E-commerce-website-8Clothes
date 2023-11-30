@@ -29,6 +29,43 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
   });
 }
 
+console.log('why oh why-----------')
+function updateCartItemQuantity(productId, quantity) {
+  $.ajax({
+    url: "./services/update_cart_item_quantity.php",
+    method: "POST",
+    data: {
+      product_id: productId,
+      quantity: quantity
+    },
+    success: function(response) {
+      console.log(response);
+      var responseData = response;
+      var responseData = JSON.parse(response);
+      
+      function formatCurrency(amount) {
+        var formattedAmount = amount.toLocaleString("vi-VN", {
+          style: "currency",
+          currency: "VND"
+        });
+
+        return formattedAmount;
+      }
+
+      var formattedTotalPrice = formatCurrency(responseData.newTotalPrice);
+
+      console.log(formattedTotalPrice);
+      if (responseData.hasOwnProperty("newTotalPrice")) {
+        console.log("--------------" + responseData.newTotalPrice);
+        $("#total_price_vnd").text(formattedTotalPrice);
+      }
+      console.log(response);
+    },
+    error: function(xhr, status, error) {
+      console.log(error);
+    }
+  });
+}
 
 function addAddress() {
   var cities = $("#shipping-city");

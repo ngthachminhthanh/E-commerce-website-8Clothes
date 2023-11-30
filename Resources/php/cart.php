@@ -25,44 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
 }
 ;
 
-echo '<script>
-function updateCartItemQuantity(productId, quantity) {
-  $.ajax({
-    url: "./services/update_cart_item_quantity.php",
-    method: "POST",
-    data: {
-      product_id: productId,
-      quantity: quantity
-    },
-    success: function(response) {
-      console.log(response);
-      var responseData = response;
-      var responseData = JSON.parse(response);
-      
-      function formatCurrency(amount) {
-        var formattedAmount = amount.toLocaleString("vi-VN", {
-          style: "currency",
-          currency: "VND"
-        });
-
-        return formattedAmount;
-      }
-
-      var formattedTotalPrice = formatCurrency(responseData.newTotalPrice);
-
-      console.log(formattedTotalPrice);
-      if (responseData.hasOwnProperty("newTotalPrice")) {
-        console.log("--------------" + responseData.newTotalPrice);
-        $("#total_price_vnd").text(formattedTotalPrice);
-      }
-      console.log(response);
-    },
-    error: function(xhr, status, error) {
-      console.log(error);
-    }
-  });
-}
-</script>';
 
 if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) {
   echo '
