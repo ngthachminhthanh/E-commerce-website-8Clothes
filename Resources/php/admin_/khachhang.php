@@ -19,12 +19,24 @@ $perRow = $page * $rowsPerPage - $rowsPerPage;
 $searchTerm = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 $searchTerm = trim($searchTerm);
 
-$sql = "SELECT order_details.name, customer.Email, count(order_id) AS SLDHDD, sum(orders.total_amount) AS Tong
+if(empty($searchTerm)){
+    $sql = "SELECT order_details.name, customer.Email, count(order_id) AS SLDHDD, sum(orders.total_amount) AS Tong
         FROM order_details 
         JOIN orders ON orders.order_number = order_details.order_id
         JOIN customer ON order_details.name = customer.Username
         GROUP BY order_details.name
         LIMIT $perRow, $rowsPerPage";
+}else{
+    $sql = "SELECT order_details.name, customer.Email, count(order_id) AS SLDHDD, sum(orders.total_amount) AS Tong
+        FROM order_details 
+        JOIN orders ON orders.order_number = order_details.order_id
+        JOIN customer ON order_details.name = customer.Username
+        WHERE order_details.name LIKE '%$searchTerm%'
+        GROUP BY order_details.name
+        LIMIT $perRow, $rowsPerPage";
+}
+
+
 
 $query = mysqli_query($conn, $sql);
 ?>
