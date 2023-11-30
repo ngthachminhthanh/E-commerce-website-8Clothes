@@ -53,7 +53,7 @@
 
             if(isset($_SESSION['username'])){
                 echo '<i class="fa-regular fa-user"></i>';
-                echo '<li style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
+                echo '<li class="dark:!text-gray-100"  style="padding: 0 10px;">' . $_SESSION['username'] . '</li>';
                 // session_destroy();
             }?>  
         <li><a class="dark:!text-gray-100 dark:hover:!bg-indigo-600 " href="cart.php">GIỎ HÀNG</a></li>
