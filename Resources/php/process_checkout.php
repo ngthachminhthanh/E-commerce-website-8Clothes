@@ -160,9 +160,5 @@ if (isset($_SESSION['new_order_id'])) {
     echo "Không có ID đơn hàng mới.";
 }
 
-// echo '
-// ';
 require_once('./components/footer.php');
 ?>
-<!-- <script src="../JS/tailwind.config.js"></script>
-<script src="../JS/app.js"></script> -->

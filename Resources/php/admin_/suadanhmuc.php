@@ -71,7 +71,7 @@ if (isset($_GET['Id'])) {
 
 
 
-<main class="py-10 dark:bg-slate-800 dark:ring-white/10 dark:shadow-inner">
+<main class="py-10 dark:bg-slate-900 dark:ring-white/10 dark:shadow-inner">
     <div class="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div class="min-w-0 flex flex-1 items-center space-x-2">
             <a href="quantri.php?page_layout=danhmucsp" class="btn btn-default btn-xs">

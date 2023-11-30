@@ -24,7 +24,7 @@ $query = mysqli_query($conn, $sql);
 ?>
 
 
-<main class="py-10 dark:bg-slate-800 dark:ring-white/10 dark:shadow-inner">
+<main class="py-10 dark:bg-slate-900 dark:ring-white/10 dark:shadow-inner">
     <div>
 
 
