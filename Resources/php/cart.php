@@ -3,17 +3,7 @@ session_start();
 include("config.php");
 include_once './components/header.php';
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_quantity'])) {
-//   $product_id = $_POST['product_id'];
-//   $new_quantity = $_POST['new_quantity'];
 
-//   foreach ($_SESSION['shopping_cart'] as &$item) {
-//     if ($item['product_id'] === $product_id) {
-//       $item['quantity'] = $new_quantity;
-//       break;
-//     }
-//   }
-// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
   $product_id = $_POST['product_id'];
@@ -145,12 +135,9 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
 </main>';
 }
 
-echo '';
 include_once './components/footer.php';
 $con->close();
 ?>
-<!-- <script src="../JS/tailwind.config.js"></script>
-<script src="../JS/app.js"></script> -->
 <script>
   $(document).ready(function(){
     $("#btn_muahang").click(function(){

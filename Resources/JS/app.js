@@ -121,7 +121,6 @@ function addAddress() {
 }
 
 
-// document ready jquery
 $(document).ready(function () {
   var themeToggleDarkIcon = $(
     "#theme-toggle-dark-icon"
@@ -167,9 +166,6 @@ $(document).ready(function () {
     }
   });
 
-
-
-
   $("#logOutBtn").on("click", function () {
     $.ajax({
       type: "GET",
@@ -187,8 +183,6 @@ $(document).ready(function () {
     });
   });
 
-
-
   let searchBar = document.querySelector('.searchBar');
   let currentPage = window.location.pathname;
   let excludedPages = ['/cart.php', '/checkout.php', '/process_checkout.php'];
@@ -199,7 +193,7 @@ $(document).ready(function () {
   }
 
 });
-// ready end
+
 
 function sortPL(loaiSP, sortOption) {
   var selectedValue = sortOption;
@@ -224,31 +218,24 @@ function sortIndex(sortOption) {
   var selectedValue = sortOption;
   var keyword = $("#input").val().trim();
   console.log(selectedValue, '  --  - - ', keyword);
-  // Gửi yêu cầu AJAX để lấy dữ liệu được sắp xếp
   $.ajax({
-    url: "./sort.php", // Đường dẫn đến file xử lý sắp xếp
+    url: "./sort.php", 
     method: "POST",
     data: { sortOption: selectedValue, category: keyword },
     success: function (data) {
-      // Cập nhật nội dung trang với kết quả sắp xếp
       $("#content").html(data);
     }
   });
 }
 
 function search() {
-  // Lấy giá trị đã chọn
   let selectedValue = $(".products-container .sort select").val();
   var keyword = $("#input").val().trim();
-  // Gửi yêu cầu AJAX để tìm kiếm sản phẩm
   $.ajax({
-    // url: "./filter.php", // Đường dẫn đến file xử lý tìm kiếm
-    url: "./sort.php", // Đường dẫn đến file xử lý tìm kiếm
+    url: "./sort.php",
     method: "POST",
-    // data: { category: keyword },
     data: { sortOption: selectedValue, category: keyword },
     success: function (data) {
-      // Cập nhật nội dung trang với kết quả tìm kiếm
       $("#content").html(data);
     }
   });
