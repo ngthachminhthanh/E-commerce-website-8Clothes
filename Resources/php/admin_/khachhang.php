@@ -31,7 +31,7 @@ if(empty($searchTerm)){
         FROM order_details 
         JOIN orders ON orders.order_number = order_details.order_id
         JOIN customer ON order_details.name = customer.Username
-        WHERE order_details.name LIKE '%$searchTerm%'
+        WHERE order_details.name LIKE '%$searchTerm%' OR customer.Email LIKE '%$searchTerm%'
         GROUP BY order_details.name
         LIMIT $perRow, $rowsPerPage";
 }
