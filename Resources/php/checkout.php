@@ -4,6 +4,12 @@ ob_start();
 include_once("config.php");
 include_once './components/header.php';
 
+$isLoggedIn = isset($_SESSION['valid']);
+if (!$isLoggedIn) {
+    header("Location: login.php?passToCart=1");
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Lấy thông tin từ biểu mẫu
   $name = mysqli_real_escape_string($con, $_POST["shipping-name"]);

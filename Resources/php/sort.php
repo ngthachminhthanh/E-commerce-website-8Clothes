@@ -14,6 +14,7 @@
         require_once 'config.php';
         if (isset($_POST['sortOption']) && isset($_POST['category'])) {
             // Đã nhận cả hai đối số
+            // Lấy giá trị đã chọn từ client
             $sortOption = $_POST['sortOption'];
             echo '<div class="sort">
                 <label for="" class="dark:text-gray-100">Sắp xếp</label>
@@ -24,10 +25,6 @@
                 </select>
                 </div>';
             $category = $_POST['category'];
-            /*if (isset($_POST['sortOption'])) {
-                // Lấy giá trị đã chọn từ client
-                $sortOption = $_POST['sortOption'];
-            */
             // Xử lý giá trị được chọn (ví dụ: sắp xếp dữ liệu)
             if ($sortOption === 'highlow') {
                 $sql = "SELECT * FROM product WHERE (`Name` like '%$category%') or (`Description` like '%$category%') ORDER BY price DESC";

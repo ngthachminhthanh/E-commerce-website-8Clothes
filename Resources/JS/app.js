@@ -217,8 +217,8 @@ function sortPL(loaiSP, sortOption) {
     }
   });
 }
+
 function sortIndex(sortOption) {
-  // Lấy giá trị đã chọn
   var selectedValue = sortOption;
   var keyword = $("#input").val().trim();
   console.log(selectedValue, '  --  - - ', keyword);
