@@ -66,9 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Lưu chi tiết đơn hàng
       $sql = "INSERT INTO order_details (order_id, name, address, phone, order_notes) VALUES ('$orderId', '$name', '$address', '$phone', '$orderNotes')";
       if ($con->query($sql) === TRUE) {
-        // Lấy ID đơn hàng mới tạo
-        $orderId = $con->insert_id;
-
         // Lưu ID đơn hàng vào Session để sử dụng cho trang hoàn tất thanh toán
         $_SESSION['new_order_id'] = $orderId;
         header("Location: process_checkout.php");
