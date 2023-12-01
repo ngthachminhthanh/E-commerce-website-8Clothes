@@ -7,16 +7,14 @@ include_once './components/header.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Lấy thông tin từ biểu mẫu
   $name = mysqli_real_escape_string($con, $_POST["shipping-name"]);
-  // $address = mysqli_real_escape_string($con, $_POST["shipping-address"]) . ' - ' . $_POST["shipping-ward"] . $_POST["shipping-district"] . $_POST["shipping-city"];
   $address = mysqli_real_escape_string($con, $_POST["shipping-address"]) . ' - ' . $_POST["shipping-ward-text"] . ', ' . $_POST["shipping-district-text"] . ', ' . $_POST["shipping-city-text"];
   $phone = mysqli_real_escape_string($con, $_POST["shipping-phone"]);
   $orderNotes = mysqli_real_escape_string($con, $_POST["order_notes"]);
   $total_price = mysqli_real_escape_string($con, $_POST["total_price"]);
-  $userId = 1; // Đây là giá trị ví dụ, cần thay thế bằng user_id thực tế
+  $userId = $_SESSION['id'];
 
-  print_r($_POST);
+  // print_r($_POST);
 
-  //mysqli_prepare
   // Tạo đơn hàng
   $sql = "INSERT INTO orders (user_id, total_amount, order_date, order_number, payment_status, shipping_status) VALUES ('$userId', '$total_price', NOW(), '', 'Chưa thanh toán', 'Chờ xác nhận')";
   if ($con->query($sql) === TRUE) {
@@ -45,11 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Lưu chi tiết đơn hàng
       $sql = "INSERT INTO order_details (order_id, name, address, phone, order_notes) VALUES ('$orderId', '$name', '$address', '$phone', '$orderNotes')";
       if ($con->query($sql) === TRUE) {
-        // echo "Đơn hàng đã được đặt thành công. Mã đơn hàng của bạn là: " . $orderId;
         // Lấy ID đơn hàng mới tạo
         $orderId = $con->insert_id;
 
-        // Lưu ID đơn hàng vào Session (hoặc truyền qua URL)
+        // Lưu ID đơn hàng vào Session để sử dụng cho trang hoàn tất thanh toán
         $_SESSION['new_order_id'] = $orderId;
         header("Location: process_checkout.php");
         unset($_SESSION['shopping_cart']);
@@ -64,17 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Lỗi: " . $sql . "<br>" . $con->error;
   }
 }
+
 if (!isset($_SESSION['shopping_cart']) || count($_SESSION['shopping_cart']) == 0) {
   header("Location: ./cart.php");
   exit();
-  // header("Location: ./index.php");
 }
 $con->close();
-
 ob_end_flush();
 ?>
-
-
 
 
 
@@ -84,24 +78,9 @@ ob_end_flush();
   </h1>
 
   <form method="post" class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
-    <?php
-    if (isset($_SESSION['shopping_cart'])) {
-      $i = 0;
-      foreach ($_SESSION['shopping_cart'] as $productID => $product) {
-        echo '<input type="hidden" name="order_items[' . $i . '][product_id]" value="' . $product['product_id'] . '">';
-        echo '<input type="hidden" name="order_items[' . $i . '][quantity]" value="' . $product['quantity'] . '">';
-        echo '<input type="hidden" name="order_items[' . $i . '][price]" value="' . $product['product_price'] . '">';
-        $i++;
-      }
-      ;
-    }
-    ;
-    ?>
     <div>
       <div class="mb-10 border-b border-slate-200 dark:!border-gray-500  pb-10">
         <h2 class="text-lg font-medium text-slate-900 dark:text-slate-50">Thông tin giao hàng</h2>
-        <!-- <h2 class="text-lg font-medium text-slate-900">Contact information</h2> -->
-
         <div class="mt-4">
           <label
             class="block block text-sm text-sm font-medium font-medium text-slate-700 text-slate-700 dark:text-slate-50"
@@ -109,13 +88,11 @@ ob_end_flush();
           <div class="mt-1">
             <input required
               class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-              type="email" id="contact-email" name="contact-email" autocomplete="email" placeholder="VD: abc123@gmail.com" disabled value="<?php echo $_SESSION['valid'];?>"/>
+              type="email" id="contact-email" name="contact-email" placeholder="VD: abc123@gmail.com" disabled value="<?php echo $_SESSION['valid'];?>"/>
           </div>
         </div>
       </div>
       <div>
-        <!-- <h2 class="text-lg font-medium text-slate-900">Shipping information</h2> -->
-
         <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
           <div class="sm:col-span-3">
             <label class="block text-sm font-medium text-slate-700 dark:text-slate-50" for="shipping-name"> Họ tên
@@ -123,7 +100,7 @@ ob_end_flush();
             <div class="mt-1">
               <input required
                 class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                type="text" id="shipping-name" value="<?php echo $_SESSION['username'];?>" placeholder="VD: Nguyễn Văn A" name="shipping-name" autocomplete="given-name" />
+                type="text" id="shipping-name" value="<?php echo $_SESSION['username'];?>" placeholder="VD: Nguyễn Văn A" name="shipping-name"  />
             </div>
           </div>
 
@@ -143,7 +120,7 @@ ob_end_flush();
               <input required
                 class="p-2 block w-full appearance-none rounded-md border border-slate-300  dark:!border-gray-500 shadow-sm checked:bg-sky-500 checked:text-sky-500 focus:border-sky-500 focus:ring-sky-500 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:opacity-50 dark:border-white/10 dark:bg-gray-800 dark:text-slate-50 dark:checked:bg-sky-500 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
                 type="text" placeholder="VD: Số 549/89/21 đường Xô Viết Nghệ Tĩnh" name="shipping-address" id="shipping-address"
-                autocomplete="street-address" />
+                 />
             </div>
           </div>
 
@@ -154,7 +131,7 @@ ob_end_flush();
             <div class="mt-1">
               <select required
                 class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                id="shipping-city" name="shipping-city" autocomplete="country-name"
+                id="shipping-city" name="shipping-city" 
                 onchange="$('#shipping-city-text').val($(this).find('option:selected').text())">
                 <option value="" class="dark:text-slate-40 dark:bg-slate-800">Chọn tỉnh thành</option>
               </select>
@@ -168,7 +145,7 @@ ob_end_flush();
             <div class="mt-1">
               <select required
                 class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                id="shipping-district" name="shipping-district" autocomplete="country-name"
+                id="shipping-district" name="shipping-district" 
                 onchange="$('#shipping-district-text').val($(this).find('option:selected').text())">
                 <option value="" class="dark:text-slate-40 dark:bg-slate-800">Chọn quận huyện</option>
               </select>
@@ -183,7 +160,7 @@ ob_end_flush();
             <div class="mt-1">
               <select required
                 class="p-2 block block w-full w-full rounded-md border-slate-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:focus:ring-offset-slate-900 sm:text-sm"
-                id="shipping-ward" name="shipping-ward" autocomplete="country-name"
+                id="shipping-ward" name="shipping-ward" 
                 onchange="$('#shipping-ward-text').val($(this).find('option:selected').text())">
                 <option value="" class="dark:text-slate-40 dark:bg-slate-800">Chọn phường xã</option>
               </select>
@@ -248,6 +225,7 @@ ob_end_flush();
               $total_price = 0;
               $i = 0;
               $cart_items_count = count($_SESSION['shopping_cart']);
+              // Đây là những input ẩn chỉ dùng để cho sau khi submit lưu thông tin vào order_items
               foreach ($_SESSION['shopping_cart'] as $productID => $product) {
                 echo '<input type="hidden" name="order_items[' . $i . '][product_id]" value="' . $product['product_id'] . '">';
                 echo '<input type="hidden" name="order_items[' . $i . '][quantity]" value="' . $product['quantity'] . '">';
@@ -313,9 +291,8 @@ ob_end_flush();
     </div>
   </form>
 </main>
-<!-- <script src="../JS/app.js"></script>
-<script src="../JS/tailwind.config.js"></script> -->
 <?php
 include_once './components/footer.php';
 ?>
+<!-- Nạp địa chỉ cho các lựa chọn tỉnh thành... -->
 <script>$(document).ready(addAddress())</script>
