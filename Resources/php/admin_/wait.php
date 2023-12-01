@@ -172,6 +172,7 @@ $all_order = mysqli_query($conn, $sql);
                                               } else {
                                                 // echo "Error updating record: " . $conn->error;
                                               }
+                                              echo "<meta http-equiv='refresh' content='0'>";
                                         } else {
                                             // echo "loi roi";
                                         }
