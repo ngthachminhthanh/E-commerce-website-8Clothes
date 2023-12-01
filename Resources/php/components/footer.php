@@ -22,7 +22,6 @@
 <?php include_once("./components/cartToast.php"); ?>
 </div>
 </body>
-<script src='../JS/index.js'></script>
 <script src="../JS/app.js"></script>
 <script>
 	$(document).ready(function () {
