@@ -31,6 +31,16 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
   // if (isset($_SESSION['shopping_cart'])) {
   $total_price = 0;
   foreach ($_SESSION['shopping_cart'] as $productID => $product) {
+    // Lấy số lượng hàng của sản phẩm từ bảng product
+    $query = "SELECT quantity FROM product WHERE Id = ".$product['product_id'];
+    $result = mysqli_query($con, $query);        
+    $row = mysqli_fetch_assoc($result);
+    $currentQuantity = $row['quantity']; 
+      // Kiểm tra nếu số lượng bằng 0, hiển thị alert và xoá sản phẩm
+      if ($currentQuantity == 0) {
+        unset($_SESSION['shopping_cart'][$productID]);
+        echo "<script>alert('Sản phẩm " . $product['product_name'] . " đã hết hàng.')</script>";
+    }
     $total_price += ($product['product_price'] * $product['quantity']);
     $product_price_vnd = number_format($product['product_price'] / 1, 0, ',', '.') . ' đ';
     echo '<li class="flex py-6 border-slate-200 dark:!border-gray-500">
@@ -57,7 +67,7 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
 
         <div class="mt-4 flex flex-1 items-end justify-between">
           <div>
-            <input class="appearance-none border border-slate-300 rounded-md shadow-sm checked:bg-sky-500 checked:text-sky-500 disabled:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-gray-800 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:text-slate-50 dark:focus:ring-offset-slate-900 dark:checked:bg-sky-500 w-16 no-spinners text-center sm:text-sm" type="number" min="1" name="quantity" value="' . $product['quantity'] . '" id="quantity" onchange="updateCartItemQuantity(' . $product['product_id'] . ', this.value)">
+            <input class="appearance-none border border-slate-300 rounded-md shadow-sm checked:bg-sky-500 checked:text-sky-500 disabled:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed focus:border-sky-500 focus:ring-sky-500 dark:border-white/10 dark:bg-gray-800 dark:focus:border-sky-500 dark:focus:ring-sky-500 dark:text-slate-50 dark:focus:ring-offset-slate-900 dark:checked:bg-sky-500 w-16 no-spinners text-center sm:text-sm" type="number" min="1" max="'.$currentQuantity.'" name="quantity" value="' . $product['quantity'] . '" id="quantity" onchange="updateCartItemQuantity(' . $product['product_id'] . ', this.value)">
           </div>
           <div class="ml-4">
             <form action="" method="post">

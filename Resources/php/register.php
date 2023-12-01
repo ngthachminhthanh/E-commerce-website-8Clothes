@@ -65,7 +65,7 @@
 
                 <div class="field input">
                     <label for="phone">Số điện thoại</label>
-                    <input type="text" name="phone" id="phone" autocomplete="off" required min="0">
+                    <input type="text" name="phone" id="phone" pattern="[0-0]{1}[0-9]{3}[0-9]{3}[0-9]{3}"  autocomplete="off" required min="0">
                 </div>
                 <div class="field input">
                     <label for="password">Mật khẩu</label>
