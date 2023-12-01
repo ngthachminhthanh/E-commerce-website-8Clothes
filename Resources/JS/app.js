@@ -1,8 +1,8 @@
 
-function showCartToast(product_name) {
+function showCartToast(message) {
   var toastBody = $("#cartToast .toast-body");
 
-  toastBody.text("Đã thêm sản phẩm vào giỏ hàng.");
+  toastBody.text(message);
 
   $("#cartToast").toast({
     delay: 2000
@@ -21,7 +21,12 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
     },
     success: function (response) {
       console.log('success')
-      showCartToast(product_name);
+      if (response.startsWith("Sản phẩm đã được thêm vào giỏ hàng!")) {
+        showCartToast("Đã thêm sản phẩm vào giỏ hàng.");
+      } else {
+        // alert(response); 
+        showCartToast(response)
+      }
     },
     error: function (xhr, status, error) {
       console.error("AJAX request failed:", status, error);
@@ -29,7 +34,6 @@ function addToCart(product_id, product_name, product_image_link, product_price) 
   });
 }
 
-console.log('why oh why-----------')
 function updateCartItemQuantity(productId, quantity) {
   $.ajax({
     url: "./services/update_cart_item_quantity.php",

@@ -39,7 +39,7 @@ if (isset($_SESSION['shopping_cart']) && count($_SESSION['shopping_cart']) > 0) 
       // Kiểm tra nếu số lượng bằng 0, hiển thị alert và xoá sản phẩm
       if ($currentQuantity == 0) {
         unset($_SESSION['shopping_cart'][$productID]);
-        echo "<script>alert('Sản phẩm " . $product['product_name'] . " đã hết hàng.')</script>";
+        echo "<script>alert('Sản phẩm " . $product['product_name'] . " đã hết hàng.'); location.reload()</script>";
     }
     $total_price += ($product['product_price'] * $product['quantity']);
     $product_price_vnd = number_format($product['product_price'] / 1, 0, ',', '.') . ' đ';
