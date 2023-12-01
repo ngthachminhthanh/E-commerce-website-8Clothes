@@ -10,7 +10,6 @@ include_once('ketnoi.php');
 ?>
 
 <html lang="en" class="h-full">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,51 +23,9 @@ include_once('ketnoi.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
-
     <link rel="stylesheet" href="../../CSS/admin_style.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
-<!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <script src="tailwind.config.js"></script> -->
-    <!-- <script src="app.js"></script> -->
-    <script>
-        $(document).ready(function () {
-  var themeToggleDarkIcon = $("#theme-toggle-dark-icon");
-  var themeToggleLightIcon = $("#theme-toggle-light-icon");
-  var themeToggleBtn = $("#theme-toggle");
-
-  function setInitialTheme() {
-    var currentTheme = localStorage.getItem("color-theme");
-
-    if (currentTheme === "dark" || (!currentTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      $("html").addClass("dark");
-      themeToggleLightIcon.removeClass("hidden");
-    } else {
-      themeToggleDarkIcon.removeClass("hidden");
-    }
-  }
-
-  setInitialTheme();
-
-  function toggleTheme() {
-    themeToggleDarkIcon.toggleClass("hidden");
-    themeToggleLightIcon.toggleClass("hidden");
-
-    var currentTheme = localStorage.getItem("color-theme");
-
-    if (currentTheme === "light") {
-      $("html").addClass("dark");
-      localStorage.setItem("color-theme", "dark");
-    } else {
-      $("html").removeClass("dark");
-      localStorage.setItem("color-theme", "light");
-    }
-  }
-
-  themeToggleBtn.on("click", toggleTheme);
-});
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../../JS/admin_app.js"></script>
 </head>
 
 <body id="main" class="antialiased font-sans h-full bg-white dark:bg-slate-900">
