@@ -6,6 +6,8 @@
     scroll-behavior: smooth;
     font-family: 'tahoma';
     font-size: 100%;
+    transition: all 0.1s linear;
+    transition: width none;
 }
 
 @font-face {
