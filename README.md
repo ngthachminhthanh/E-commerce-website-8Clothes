@@ -13,8 +13,8 @@
 
 #### Chuẩn bị
 -	Xampp: 
-  -	MySQL: lưu trữ và quản lý dữ liệu.
-  - Apache: dịch vụ websever để chạy trang web.
+    -	MySQL: lưu trữ và quản lý dữ liệu.
+    - Apache: dịch vụ websever để chạy trang web.
 -	SQL: thực hiện các truy vấn dữ liệu như SELECT, INSERT, UPDATE, DELETE.
 -	VS Code: tạo môi phát triển tích hợp với đa dạng các ngôn ngữ, dùng để viết và chạy mã nguồn.
 -	Git: theo dõi lịch sử, quản lý, hợp nhất mã nguồn.
